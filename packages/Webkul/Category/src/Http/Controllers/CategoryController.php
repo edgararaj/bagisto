@@ -2,13 +2,15 @@
 
 namespace Webkul\Category\Http\Controllers;
 
+use Attribute;
 use Illuminate\Support\Facades\Event;
+use Barryvdh\Debugbar\Facades\Debugbar;
 use Webkul\Admin\DataGrids\CategoryDataGrid;
-use Webkul\Admin\DataGrids\CategoryProductDataGrid;
 use Webkul\Core\Repositories\ChannelRepository;
+use Webkul\Category\Http\Requests\CategoryRequest;
+use Webkul\Admin\DataGrids\CategoryProductDataGrid;
 use Webkul\Category\Repositories\CategoryRepository;
 use Webkul\Attribute\Repositories\AttributeRepository;
-use Webkul\Category\Http\Requests\CategoryRequest;
 
 class CategoryController extends Controller
 {
@@ -61,6 +63,7 @@ class CategoryController extends Controller
 
         $attributes = $this->attributeRepository->findWhere(['is_filterable' => 1]);
 
+        Debugbar::info("ola");
         return view($this->_config['view'], compact('categories', 'attributes'));
     }
 
@@ -168,7 +171,7 @@ class CategoryController extends Controller
     public function massDestroy()
     {
         $suppressFlash = true;
-        
+
         $categoryIds = explode(',', request()->input('indexes'));
 
         foreach ($categoryIds as $categoryId) {
@@ -244,7 +247,7 @@ class CategoryController extends Controller
     public function categoryProductCount()
     {
         $productCount = 0;
-        
+
         $indexes = explode(',', request()->input('indexes'));
 
         foreach ($indexes as $index) {

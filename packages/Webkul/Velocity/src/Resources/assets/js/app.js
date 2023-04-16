@@ -49,6 +49,7 @@ Vue.filter('currency', function(value, argument) {
 /**
  * Global components.
  */
+Vue.component('categories-home', () => import('@components/categories-home'));
 Vue.component('vue-slider', () => import('vue-slider-component'));
 Vue.component('mini-cart-button', () => import('@components/mini-cart-button'));
 Vue.component('mini-cart', () => import('@components/mini-cart'));

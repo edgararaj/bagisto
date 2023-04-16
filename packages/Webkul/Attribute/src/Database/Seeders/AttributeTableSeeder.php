@@ -672,5 +672,14 @@ class AttributeTableSeeder extends Seeder
                'attribute_id' => '27',
             ]
         ]);
+
+        DB::table('attribute_translations')->insert([
+            [
+               'id'           => '28',
+               'locale'       => 'pt_BR',
+               'name'         => 'Preço',
+               'attribute_id' => '11',
+            ]
+        ]);
     }
 }

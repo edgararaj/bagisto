@@ -23,7 +23,7 @@ return [
         'filter-fields-missing' => 'Alguns dos campos obrigatórios são nulos, por favor verifique coluna, condição e valor corretamente',
         'filter-exists'         => 'Filter value already exists.',
         'click_on_action'       => 'Você realmente quer realizar esta ação?',
-        'search'                => 'Busque Aqui...',
+        'search'                => 'Procure Aqui...',
         'search-title'          => 'Procurar',
         'channel'               => 'Canal',
         'locale'                => 'Localidade',
