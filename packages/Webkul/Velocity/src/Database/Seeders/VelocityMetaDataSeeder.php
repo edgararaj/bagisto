@@ -117,7 +117,7 @@ class VelocityMetaDataSeeder extends Seeder
             ],
             [
                 'code'         => 'general.content.shop.compare_option',
-                'value'        => '1',
+                'value'        => '0',
                 'channel_code' => 'default',
                 'locale_code'  => 'pt_BR',
                 'created_at'   => $now,
@@ -313,7 +313,7 @@ class VelocityMetaDataSeeder extends Seeder
             ],
             [
                 'code'         => 'general.content.shop.image_search',
-                'value'        => '1',
+                'value'        => '0',
                 'channel_code' => 'default',
                 'locale_code'  => 'pt_BR',
                 'created_at'   => $now,

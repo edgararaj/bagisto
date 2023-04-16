@@ -17,8 +17,8 @@ class ChannelTableSeeder extends Seeder
             'theme'             => 'velocity',
             'hostname'          => config('app.url'),
             'root_category_id'  => 1,
-            'default_locale_id' => 1,
-            'base_currency_id'  => 1,
+            'default_locale_id' => 6,
+            'base_currency_id'  => 2,
         ]);
 
         DB::table('channel_translations')->insert([
@@ -232,12 +232,12 @@ class ChannelTableSeeder extends Seeder
 
         DB::table('channel_currencies')->insert([
             'channel_id'  => 1,
-            'currency_id' => 1,
+            'currency_id' => 2,
         ]);
 
         DB::table('channel_locales')->insert([
             'channel_id' => 1,
-            'locale_id'  => 1,
+            'locale_id'  => 6,
         ]);
 
         DB::table('channel_inventory_sources')->insert([

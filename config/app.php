@@ -255,6 +255,7 @@ return [
         /**
          * Webkul Package Service Providers.
          */
+        Webkul\Braintree\Providers\BraintreeServiceProvider::class,
         Webkul\Theme\Providers\ThemeServiceProvider::class,
         Webkul\User\Providers\UserServiceProvider::class,
         Webkul\Admin\Providers\AdminServiceProvider::class,
