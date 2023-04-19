@@ -7,8 +7,8 @@
 |
 */
 /* theme colors */
-$theme-color: #26A37C;
-$theme-dark-color: #247959;
+$theme-color: #e66a4e;
+$theme-dark-color: #af5642;
 
 /* background colors */
 $light-background: #F7F7F9;
@@ -19,7 +19,7 @@ $font-color-light: rgba(255, 255, 255, 0.83);
 
 /* button colors */
 $button-danger: #F05153;
-$button-primary-bg: #21A179;
+$button-primary-bg: #4D7EA8;
 $button-text-color: #FFFFFF;
 
 /* border colors */
@@ -28,7 +28,7 @@ $border-danger: #F05153;
 $border-dark: #DCDCDC;
 $border-general: #E5E5E5;
 $border-light: #ECECEC;
-$border-primary: #269c77;
+$border-primary: #4D7EA8;
 
 /* link colors */
 $link-color: #4D7EA8;
@@ -43,11 +43,11 @@ $light2-black: #cfcfd0;
 $white-color: #FFFFFF;
 
 /* other stuffs */
-$sidebar-width: 230px;
+$sidebar-width: 240px;
 $box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
 $material-icons-font-path: '../material-icons/iconfont/' !default;
 $border-normal: 1px solid $border-dark;
-$font-family-pro: 'Source Sans Pro', sans-serif;
+$font-family-pro: 'Inter', sans-serif;
 
 
 $control-border-color: #C7C7C7;

@@ -25,6 +25,7 @@ class Locale extends Model implements LocaleContract
         'fr' => 'flags/fr.png',
         'nl' => 'flags/nl.png',
         'tr' => 'flags/tr.png',
+        'pt_BR' => 'flags/pt_BR.png',
     ];
 
     /**

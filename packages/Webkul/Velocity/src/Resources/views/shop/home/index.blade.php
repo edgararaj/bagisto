@@ -19,7 +19,7 @@
 @endphp
 
 @section('page_title')
-    {{ isset($metaTitle) ? $metaTitle : "" }}
+    {{ isset($metaTitle) ? $metaTitle : '' }}
 @endsection
 
 @section('head')
@@ -39,41 +39,50 @@
 @endsection
 
 @push('css')
-    @if (! empty($sliderData))
+    @if (!empty($sliderData))
         <link rel="preload" as="image" href="{{ Storage::url($sliderData[0]['path']) }}">
     @else
         <link rel="preload" as="image" href="{{ asset('/themes/velocity/assets/images/banner.webp') }}">
     @endif
 
     <style type="text/css">
-        .product-price span:first-child, .product-price span:last-child {
+        .product-price span:first-child,
+        .product-price span:last-child {
             font-size: 18px;
             font-weight: 600;
         }
     </style>
 @endpush
 
-@section('content-wrapper')
+{{-- @section('content-wrapper')
     @include('shop::home.slider')
-@endsection
+@endsection --}}
 
 @section('full-content-wrapper')
-
     <div class="full-content-wrapper">
         {!! view_render_event('bagisto.shop.home.content.before') !!}
 
-            @if ($velocityMetaData)
+        {{-- @if ($velocityMetaData)
                 {!! DbView::make($velocityMetaData)->field('home_page_content')->render() !!}
-            @else
-                @include('shop::home.advertisements.advertisement-four')
-                @include('shop::home.featured-products')
-                @include('shop::home.advertisements.advertisement-three')
-                @include('shop::home.new-products')
-                @include('shop::home.advertisements.advertisement-two')
-            @endif
+            @else --}}
+        <div class="container-fluid advertisement-four-container">
+            <div class="row">
+                <categories-home main-sidebar=false id="categories-home" url="{{ url()->to('/') }}"
+                    category-count="{{ $velocityMetaData ? $velocityMetaData->sidebar_category_count : 10 }}"
+                    add-class="col-lg-3 col-12 category-list-container no-padding">
+                </categories-home>
+                {{-- <div class="row no-margin col-lg-9 col-12 advertisement-container-block no-padding"> --}}
+                    @include('shop::home.slider')
+                    @include('shop::home.advertisements.advertisement-four')
+                {{-- </div> --}}
+            </div>
+        </div>
+        @include('shop::home.featured-products')
+        @include('shop::home.advertisements.advertisement-three')
+        @include('shop::home.new-products')
+        {{-- @include('shop::home.advertisements.advertisement-two') --}}
+        {{-- @endif --}}
 
         {{ view_render_event('bagisto.shop.home.content.after') }}
     </div>
-
 @endsection
-

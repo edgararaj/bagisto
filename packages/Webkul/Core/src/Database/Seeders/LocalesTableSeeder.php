@@ -37,7 +37,7 @@ class LocalesTableSeeder extends Seeder
             ], [
                 'id'   => 6,
                 'code' => 'pt_BR',
-                'name' => 'Portugues (Brasil)',
+                'name' => 'Português',
             ]
         ]);
     }

@@ -3,18 +3,15 @@
     $cartItemsCount = $cart ? $cart->items->count() : trans('shop::app.minicart.zero');
 @endphp
 
-<mobile-header
-    is-customer="{{ auth()->guard('customer')->check() ? 'true' : 'false' }}"
-    heading= "{{ __('velocity::app.menu-navbar.text-category') }}"
+<mobile-header is-customer="{{ auth()->guard('customer')->check()? 'true': 'false' }}"
+    heading="{{ __('velocity::app.menu-navbar.text-category') }}"
     :header-content="{{ json_encode(app('Webkul\Velocity\Repositories\ContentRepository')->getAllContents()) }}"
     category-count="{{ $velocityMetaData ? $velocityMetaData->sidebar_category_count : 10 }}"
-    cart-items-count="{{ $cartItemsCount }}"
-    cart-route="{{ route('shop.checkout.cart.index') }}"
+    cart-items-count="{{ $cartItemsCount }}" cart-route="{{ route('shop.checkout.cart.index') }}"
     :locale="{{ json_encode(core()->getCurrentLocale()) }}"
     :all-locales="{{ json_encode(core()->getCurrentChannel()->locales()->orderBy('name')->get()) }}"
     :currency="{{ json_encode(core()->getCurrentCurrency()) }}"
-    :all-currencies="{{ json_encode(core()->getCurrentChannel()->currencies) }}"
->
+    :all-currencies="{{ json_encode(core()->getCurrentChannel()->currencies) }}">
 
     {{-- this is default content if js is not loaded --}}
     <div class="row">
@@ -24,7 +21,8 @@
             </div>
 
             <a class="left" href="{{ route('shop.home.index') }}" aria-label="Logo">
-                <img class="logo" src="{{ core()->getCurrentChannel()->logo_url ?? asset('themes/velocity/assets/images/logo-text.png') }}" alt="" />
+                <h1 class="logo">Olasnog</h1>
+                {{-- <img class="logo" src="{{ core()->getCurrentChannel()->logo_url ?? asset('themes/velocity/assets/images/logo-text.png') }}" alt="" /> --}}
             </a>
         </div>
 
@@ -123,18 +121,14 @@
                     @method('DELETE')
                 </form>
 
-                <a
-                    class="unset"
-                    href="{{ route('customer.session.destroy') }}"
+                <a class="unset" href="{{ route('customer.session.destroy') }}"
                     onclick="event.preventDefault(); document.getElementById('customerLogout').submit();">
                     {{ __('shop::app.header.logout') }}
                 </a>
             @endauth
 
             @guest('customer')
-                <a
-                    class="unset"
-                    href="{{ route('customer.session.create') }}">
+                <a class="unset" href="{{ route('customer.session.create') }}">
                     <span>{{ __('shop::app.customer.login-form.title') }}</span>
                 </a>
             @endguest
@@ -142,9 +136,7 @@
 
         <li>
             @guest('customer')
-                <a
-                    class="unset"
-                    href="{{ route('customer.register.index') }}">
+                <a class="unset" href="{{ route('customer.register.index') }}">
                     <span>{{ __('shop::app.header.sign-up') }}</span>
                 </a>
             @endguest
@@ -153,11 +145,12 @@
 
     <template v-slot:logo>
         <a class="left" href="{{ route('shop.home.index') }}" aria-label="Logo">
-            <img class="logo" src="{{ core()->getCurrentChannel()->logo_url ?? asset('themes/velocity/assets/images/logo-text.png') }}" alt="" />
+            <h1 class="logo">Olasnog</h1>
+            {{-- <img class="logo" src="{{ core()->getCurrentChannel()->logo_url ?? asset('themes/velocity/assets/images/logo-text.png') }}" alt="" /> --}}
         </a>
     </template>
 
-    
+
 
     <template v-slot:search-bar>
         <div class="row">

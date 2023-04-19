@@ -415,10 +415,16 @@ label {
     }
 }
 
+.banner-icon {
+    // width: 500px;
+}
+
 header {
     .logo {
         height: 46px;
         padding-left: 10px;
+        font-family: Oruguitas, sans-serif;
+        color: black;
     }
 
     #search-form {
@@ -454,7 +460,7 @@ header {
                 border-radius: 2px 0px 0px 2px;
                 border: 1px solid $theme-color;
                 border-right: 0;
-                font-family: 'Source Sans Pro', sans-serif;
+                font-family: 'Inter', sans-serif;
 
                 -webkit-appearance: none;
                 -moz-appearance: none;
@@ -784,7 +790,7 @@ header {
     }
 
     .secondary-navbar {
-        background-color: #4d7ea8;
+        // background-color: #4d7ea8;
         min-height: 40px;
         padding: 5px;
         vertical-align: middle;
@@ -972,7 +978,7 @@ i.within-circle {
     display: inline-block !important;
     max-width: 100% !important;
     margin-bottom: 5px !important;
-    font-weight: 100 !important;
+    // font-weight: 300 !important;
     font-size: 16px !important;
 }
 

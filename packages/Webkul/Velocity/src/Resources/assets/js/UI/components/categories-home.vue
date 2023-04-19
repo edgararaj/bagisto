@@ -1,173 +1,24 @@
 <template>
-    <nav
-        :id="id"
-        @mouseover="remainBar(id)"
-        :class="`sidebar ${addClass ? addClass : ''}`"
-        v-if="slicedCategories && slicedCategories.length > 0"
-    >
+    <nav :class="`sidebar home ${addClass ? addClass : ''}`" v-if="slicedCategories && slicedCategories.length > 0">
+        <button style="width: 100%" class="btn small-padding theme-btn">Categorias</button>
         <ul type="none" style="margin-bottom: 0">
-            <li
-                :key="categoryIndex"
-                :id="`category-${category.id}`"
-                class="category-content cursor-pointer"
-                @mouseout="toggleSidebar(id, $event, 'mouseout')"
-                @mouseover="toggleSidebar(id, $event, 'mouseover')"
-                v-for="(category, categoryIndex) in slicedCategories"
-            >
-                <a
-                    :href="`${$root.baseUrl}/${category.slug}`"
-                    :class="`category unset ${
-                        category.children.length > 0 ? 'fw6' : ''
-                    }`"
-                >
-                    <div
-                        class="category-icon"
-                        @mouseout="toggleSidebar(id, $event, 'mouseout')"
-                        @mouseover="toggleSidebar(id, $event, 'mouseover')"
-                    >
-                        <img
-                            v-if="category.category_icon_url"
-                            :src="category.category_icon_url"
-                            width="20"
-                            height="20"
-                        />
+            <li :key="categoryIndex" :id="`category-${category.id}`" class="category-content cursor-pointer"
+                v-for="(category, categoryIndex) in slicedCategories">
+                <a :href="`${$root.baseUrl}/${category.slug}`" :class="`category unset ${category.children.length > 0 ? 'fw6' : ''
+                    }`">
+                    <div class="category-icon">
+                        <img v-if="category.category_icon_url" :src="category.category_icon_url" width="20" height="20" />
                     </div>
 
                     <span class="category-title">{{ category['name'] }}</span>
 
-                    <i
-                        class="rango-arrow-right pr15 float-right"
-                        @mouseout="toggleSidebar(id, $event, 'mouseout')"
-                        @mouseover="toggleSidebar(id, $event, 'mouseover')"
-                        v-if="
-                            category.children.length &&
-                            category.children.length > 0
-                        "
-                    >
+                    <i class="rango-arrow-right pr15 float-right" v-if="
+                        category.children.length &&
+                        category.children.length > 0
+                    ">
                     </i>
                 </a>
 
-                <div
-                    class="sub-category-container"
-                    v-if="
-                        category.children.length && category.children.length > 0
-                    "
-                >
-                    <div
-                        @mouseout="toggleSidebar(id, $event, 'mouseout')"
-                        @mouseover="
-                            remainBar(
-                                `sidebar-level-${sidebarLevel + categoryIndex}`
-                            )
-                        "
-                        :class="`sub-categories sub-category-${
-                            sidebarLevel + categoryIndex
-                        } cursor-default`"
-                    >
-                        <nav
-                            class="sidebar"
-                            :id="`sidebar-level-${
-                                sidebarLevel + categoryIndex
-                            }`"
-                            @mouseover="
-                                remainBar(
-                                    `sidebar-level-${
-                                        sidebarLevel + categoryIndex
-                                    }`
-                                )
-                            "
-                        >
-                            <ul type="none">
-                                <li
-                                    :key="`${subCategoryIndex}-${categoryIndex}`"
-                                    v-for="(
-                                        subCategory, subCategoryIndex
-                                    ) in category.children"
-                                >
-                                    <a
-                                        :id="`sidebar-level-link-2-${subCategoryIndex}`"
-                                        @mouseout="
-                                            toggleSidebar(
-                                                id,
-                                                $event,
-                                                'mouseout'
-                                            )
-                                        "
-                                        :href="`${$root.baseUrl}/${category.slug}/${subCategory.slug}`"
-                                        :class="`category sub-category unset ${
-                                            subCategory.children.length > 0
-                                                ? 'fw6'
-                                                : ''
-                                        }`"
-                                    >
-                                        <div
-                                            class="category-icon"
-                                            @mouseout="
-                                                toggleSidebar(
-                                                    id,
-                                                    $event,
-                                                    'mouseout'
-                                                )
-                                            "
-                                            @mouseover="
-                                                toggleSidebar(
-                                                    id,
-                                                    $event,
-                                                    'mouseover'
-                                                )
-                                            "
-                                        >
-                                            <img
-                                                v-if="
-                                                    subCategory.category_icon_url
-                                                "
-                                                :src="
-                                                    subCategory.category_icon_url
-                                                "
-                                            />
-                                        </div>
-                                        <span class="category-title">{{
-                                            subCategory['name']
-                                        }}</span>
-
-                                        <i
-                                            class="rango-arrow-down pr15 float-right"
-                                            @mouseout="toggleSidebar(id, $event, 'mouseout')"
-                                            @mouseover="toggleSidebar(id, $event, 'mouseover')"
-                                            v-if="subCategory.children.length > 0"
-                                        >
-                                        </i>
-                                    </a>
-
-                                    <ul type="none" class="nested">
-                                        <li
-                                            :key="`${childSubCategoryIndex}-${subCategoryIndex}-${categoryIndex}`"
-                                            v-for="(
-                                                childSubCategory,
-                                                childSubCategoryIndex
-                                            ) in subCategory.children"
-                                        >
-                                            <a
-                                                :id="`sidebar-level-link-3-${childSubCategoryIndex}`"
-                                                :class="`category unset ${
-                                                    subCategory.children
-                                                        .length > 0
-                                                        ? 'fw6'
-                                                        : ''
-                                                }`"
-                                                :href="`${$root.baseUrl}/${category.slug}/${subCategory.slug}/${childSubCategory.slug}`"
-                                            >
-                                                <span class="category-title">{{
-                                                    childSubCategory.name
-                                                }}</span>
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </li>
-                            </ul>
-                        </nav>
-                    </div>
-                </div>
             </li>
         </ul>
     </nav>
