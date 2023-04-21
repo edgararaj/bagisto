@@ -1,0 +1,2165 @@
+diff --git a/packages/Webkul/Admin/src/Resources/lang/pt_BR/app.php b/packages/Webkul/Admin/src/Resources/lang/pt_BR/app.php
+index 97c313a..6365dfa 100755
+--- a/packages/Webkul/Admin/src/Resources/lang/pt_BR/app.php
++++ b/packages/Webkul/Admin/src/Resources/lang/pt_BR/app.php
+@@ -111,7 +111,7 @@ return [
+         'locales'                  => 'Idiomas',
+         'currencies'               => 'Moedas',
+         'exchange-rates'           => 'Impostos de Câmbios',
+-        'inventory-sources'        => 'Origens de Estoque',
++        'inventory-sources'        => 'Origens de Stock',
+         'channels'                 => 'Canais (Lojas)',
+         'users'                    => 'Usuários',
+         'roles'                    => 'Funções',
+@@ -157,7 +157,7 @@ return [
+         'customer-with-most-sales'  => 'Clientes Com Mais Vendas',
+         'order-count'               => ':count Pedidos',
+         'revenue'                   => 'Receita :total',
+-        'stock-threshold'           => 'Limite de Estoque',
++        'stock-threshold'           => 'Limite de Stock',
+         'qty-left'                  => ':qty Restante',
+     ],
+ 
+@@ -208,7 +208,7 @@ return [
+         'invoice-id'       => 'Número da fatura',
+         'invoice-date'     => 'Data da Fatura',
+         'total-qty'        => 'Total Qtd',
+-        'inventory-source' => 'Fonte do Estoque',
++        'inventory-source' => 'Fonte do Stock',
+         'shipment-date'    => 'Data de Envio',
+         'shipment-to'      => 'Enviado para',
+         'sku'              => 'SKU',
+@@ -323,7 +323,7 @@ return [
+             'account-is-active'    => 'Conta está Ativa',
+             'current-password'     => 'Informe a Senha Atual',
+             'confirm-delete'       => 'Confirma a Exclusão dessa Conta',
+-            'confirm-delete-title' => 'Confirme a senha antes de deletar',
++            'confirm-delete-title' => 'Confirme a senha antes de apagar',
+             'delete-last'          => 'Ao menos um admin é obrigatório.',
+             'delete-success'       => 'Sucesso! Usuário Deletado',
+             'incorrect-password'   => 'A Senha informada é incorreta!',
+@@ -463,7 +463,7 @@ return [
+             'source'            => 'Fonte',
+             'select-source'     => 'Por favor Selecione a Fonte',
+             'qty-available'     => 'Qtd Disponível',
+-            'inventory-source'  => 'Fonte do Estoque',
++            'inventory-source'  => 'Fonte do Stock',
+             'carrier-title'     => 'Título da Transportadora',
+             'tracking-number'   => 'Código de Rastreio',
+             'view-title'        => 'Entrega #:shipment_id',
+@@ -689,7 +689,7 @@ return [
+         ],
+         'categories' => [
+             'title'                    => 'Categorias',
+-            'add-title'                => 'Add Categoria',
++            'add-title'                => 'Adicionar Categoria',
+             'edit-title'               => 'Editar Categoria',
+             'save-btn-title'           => 'Salvar Categoria',
+             'general'                  => 'Geral',
+@@ -704,7 +704,7 @@ return [
+             'description-only'         => 'Apenas descrição',
+             'description-and-images'   => 'Descrição e Imagens',
+             'description'              => 'Descrição',
+-            'parent-category'          => 'Categoria Pai',
++            'parent-category'          => 'Categoria Parente',
+             'seo'                      => 'Search Engine Optimization',
+             'products'                 => 'Produtos',
+             'slug'                     => 'Slug',
+@@ -712,7 +712,7 @@ return [
+             'meta_description'         => 'Meta Descrição',
+             'meta_keywords'            => 'Meta Keywords',
+             'image'                    => 'Imagem',
+-            'filterable-attributes'    => 'Atributos filtráveis',
++            'filterable-attributes'    => 'Atributos Filtráveis',
+             'attributes'               => 'Atributos',
+             'mass-update-success'      => 'Todas as categorias selecionadas foram atualizadas com sucesso',
+         ],
+@@ -724,7 +724,7 @@ return [
+         'save-message'   => 'Configuração salvada com sucesso!',
+         'yes'            => 'Sim',
+         'no'             => 'Não',
+-        'delete'         => 'Deletar',
++        'delete'         => 'Apagar',
+         'enable-atleast-one-shipping' => 'Enable atleast one shipping method.',
+         'enable-atleast-one-payment'  => 'Enable atleast one payment method.',
+ 
+@@ -834,10 +834,10 @@ return [
+             'last-delete-error'        => 'Pelo menos uma taxa de câmbio é necessária.',
+         ],
+         'inventory_sources' => [
+-            'title'             => 'Origens do Estoque',
+-            'add-title'         => 'Adicionar Origem de Estoque',
+-            'edit-title'        => 'Editar Origem de Estoque',
+-            'save-btn-title'    => 'Salvar Origem de Estoque',
++            'title'             => 'Origens do Stock',
++            'add-title'         => 'Adicionar Origem de Stock',
++            'edit-title'        => 'Editar Origem de Stock',
++            'save-btn-title'    => 'Salvar Origem de Stock',
+             'general'           => 'Geral',
+             'code'              => 'Código',
+             'name'              => 'Nome',
+@@ -880,7 +880,7 @@ return [
+             'currencies'             => 'Moedas',
+             'base-currency'          => 'Moeda Base',
+             'root-category'          => 'Categoria Raíz',
+-            'inventory_sources'      => 'Origem do Estoque',
++            'inventory_sources'      => 'Origem do Stock',
+             'design'                 => 'Design',
+             'theme'                  => 'Tema',
+             'home_page_content'      => 'Conteúdo da Página Inicial',
+diff --git a/packages/Webkul/Attribute/src/Database/Seeders/AttributeTableSeeder.php b/packages/Webkul/Attribute/src/Database/Seeders/AttributeTableSeeder.php
+index 3494f3a..8b7cfd3 100755
+--- a/packages/Webkul/Attribute/src/Database/Seeders/AttributeTableSeeder.php
++++ b/packages/Webkul/Attribute/src/Database/Seeders/AttributeTableSeeder.php
+@@ -672,5 +672,14 @@ class AttributeTableSeeder extends Seeder
+                'attribute_id' => '27',
+             ]
+         ]);
++
++        DB::table('attribute_translations')->insert([
++            [
++               'id'           => '28',
++               'locale'       => 'pt_BR',
++               'name'         => 'Preço',
++               'attribute_id' => '11',
++            ]
++        ]);
+     }
+ }
+\ No newline at end of file
+diff --git a/packages/Webkul/Braintree/package.json b/packages/Webkul/Braintree/package.json
+new file mode 100644
+index 0000000..e69de29
+diff --git a/packages/Webkul/Braintree/src/Config/paymentmethods.php b/packages/Webkul/Braintree/src/Config/paymentmethods.php
+new file mode 100644
+index 0000000..02dbd8d
+--- /dev/null
++++ b/packages/Webkul/Braintree/src/Config/paymentmethods.php
+@@ -0,0 +1,13 @@
++<?php
++
++return [
++    'braintree' => [
++        'code' => 'braintree',
++        'title' => 'Braintree',
++        'description' => 'Braintree Payment',
++        'class' => 'Webkul\Braintree\Payment\BraintreePayment',
++        'active' => false,
++        'sort' => 4,
++        'sandbox' => true
++    ],
++];
+\ No newline at end of file
+diff --git a/packages/Webkul/Braintree/src/Config/system.php b/packages/Webkul/Braintree/src/Config/system.php
+new file mode 100644
+index 0000000..14bee5f
+--- /dev/null
++++ b/packages/Webkul/Braintree/src/Config/system.php
+@@ -0,0 +1,75 @@
++<?php
++
++return [
++    [
++        'key' => 'sales.paymentmethods.braintree',
++        'name' => 'Braintree',
++        'sort' => 4,
++        'fields' => [
++            [
++                'name' => 'title',
++                'title' => 'Title',
++                'type' => 'text',
++                'validation' => 'required',
++                'channel_based' => true,
++                'locale_based' => true
++            ], [
++                'name' => 'description',
++                'title' => 'Description',
++                'type' => 'textarea',
++                'validation' => '',
++                'channel_based' => true,
++                'locale_based' => true
++            ], [
++                'name' => 'active',
++                'title' => 'Enable for Checkout',
++                'type' => 'select',
++                'options' => [
++                    [
++                        'title' => 'Yes',
++                        'value' => true
++                    ], [
++                        'title' => 'No',
++                        'value' => false
++                    ]
++                ],
++                'validation' => 'required'
++        ], [
++            'name' => 'debug',
++            'title' => 'Debug',
++            'type' => 'select',
++            'options' => [
++                [
++                    'title' => 'Sandbox',
++                    'value' => true
++                ], [
++                    'title' => 'Production',
++                    'value' => false
++                ]
++            ],
++            'validation' => 'required'
++        ], [
++            'name' => 'braintree_merchant_id',
++            'title' => 'Braintree Merchant ID',
++            'type' => 'text',
++            'validation' => 'required',
++            'channel_based' => true,
++            'locale_based' => true
++        ], [
++            'name' => 'braintree_public_key',
++            'title' => 'Braintree Public Key',
++            'type' => 'password',
++            'validation' => 'required',
++            'channel_based' => true,
++            'locale_based' => true
++        ], [
++            'name' => 'braintree_private_key',
++            'title' => 'Braintree Private key',
++            'type' => 'password',
++            'validation' => 'required',
++            'channel_based' => true,
++            'locale_based' => true
++            ]
++        ]
++    ]
++];
+diff --git a/packages/Webkul/Braintree/src/Http/Controllers/BraintreeController.php b/packages/Webkul/Braintree/src/Http/Controllers/BraintreeController.php
+new file mode 100644
+index 0000000..6f67967
+--- /dev/null
++++ b/packages/Webkul/Braintree/src/Http/Controllers/BraintreeController.php
+@@ -0,0 +1,173 @@
++<?php
++
++namespace Webkul\Braintree\Http\Controllers;
++
++use Illuminate\Http\Request;
++use Braintree\Gateway as Braintree_Gateway;
++use Braintree_Transaction;
++use Webkul\Sales\Repositories\InvoiceRepository;
++use Webkul\Sales\Repositories\OrderRepository;
++use Webkul\Checkout\Facades\Cart;
++use App\Exceptions\Handler;
++
++
++class BraintreeController extends Controller
++{
++
++    /**
++     * InvoiceRepository object
++     *
++     * @var object
++     */
++    protected $invoiceRepository;
++
++    /**
++     * OrderRepository object
++     *
++     * @var array
++     */
++    protected $orderRepository;
++
++    public function __construct(
++        OrderRepository $orderRepository,
++        InvoiceRepository $invoiceRepository
++    )
++    {
++        $this->orderRepository = $orderRepository;
++
++        $this->invoiceRepository = $invoiceRepository;
++    }
++
++    /**
++     * Redirects to the Braintree.
++     *
++     * @return \Illuminate\Http\Response
++     */
++    public function redirect()
++    {
++        $merchentId = core()->getConfigData('sales.paymentmethods.braintree.braintree_merchant_id');
++        $privateKey = core()->getConfigData('sales.paymentmethods.braintree.braintree_private_key');
++        $publicKey = core()->getConfigData('sales.paymentmethods.braintree.braintree_public_key');
++
++        if($merchentId && $privateKey && $publicKey)
++        {
++            try {
++            $clientToken = $this -> generateClientToken();
++
++            return view('braintree::drop-in-ui', compact('clientToken'));
++            }
++            catch(\Exception $e)
++            {
++                return redirect()->back();
++            }
++        }
++        else {
++           return redirect()->back();
++        }
++    }
++
++    /**
++     * Generate client token
++     *
++     * @return Mixed
++     */
++    public function generateClientToken()
++    {
++        $customerId = null;
++
++        if(core()->getConfigData('sales.paymentmethods.braintree.debug') == '1')
++            { $debug = 'sandbox'; }
++        else
++           { $debug = 'production'; }
++
++        $gateway = new Braintree_Gateway([
++            'environment' => $debug,
++            'merchantId' => core()->getConfigData('sales.paymentmethods.braintree.braintree_merchant_id'),
++            'publicKey' => core()->getConfigData('sales.paymentmethods.braintree.braintree_public_key'),
++            'privateKey' => core()->getConfigData('sales.paymentmethods.braintree.braintree_private_key')
++        ]);
++
++        $clientToken = $gateway->clientToken()->generate([
++            "customerId" => $customerId
++        ]);
++
++        return $clientToken;
++    }
++
++    /**
++     * Perform the transaction
++     *
++     * @return response
++     */
++    public function transaction(Request $request)
++    {
++        if(core()->getConfigData('sales.paymentmethods.braintree.debug') == '1')
++            { $debug = 'sandbox'; }
++        else
++           { $debug = 'production'; }
++
++        $gateway = new Braintree_Gateway([
++            'environment' => $debug,
++            'merchantId' => core()->getConfigData('sales.paymentmethods.braintree.braintree_merchant_id'),
++            'publicKey' => core()->getConfigData('sales.paymentmethods.braintree.braintree_public_key'),
++            'privateKey' => core()->getConfigData('sales.paymentmethods.braintree.braintree_private_key')
++        ]);
++
++        $clientToken = $gateway->clientToken()->generate();
++
++        $cartAmount = \Cart::getCart()->base_grand_total;
++
++        $payload = $request->input('payload', false);
++        $nonceFromTheClient = $payload['nonce'];
++
++        $result = $gateway->transaction()->sale([
++            'amount' => $cartAmount,
++            'paymentMethodNonce' => $nonceFromTheClient,
++            'options' => [
++              'submitForSettlement' => True
++            ]
++          ]);
++
++        if($result->success == 'true') {
++
++            $order = $this->orderRepository->create(Cart::prepareDataForOrder());
++
++            $this->order = $this->orderRepository->findOneWhere([
++                'cart_id' => Cart::getCart()->id
++                ]);
++
++            $this->orderRepository->update(['status' => 'processing'], $this->order->id);
++
++            Cart::deActivateCart();
++
++            session()->flash('order', $order);
++
++            $this->invoiceRepository->create($this->prepareInvoiceData());
++
++            session()->flash('success', trans('braintree::app.payment-successfull'));
++
++        }
++        // return redirect()->route('shop.checkout.success');
++        return response()->json($result);
++
++    }
++
++    /**
++     * Prepares order's invoice data for creation
++     *
++     * @return array
++     */
++    protected function prepareInvoiceData()
++    {
++        $invoiceData = [
++            "order_id" => $this->order->id
++        ];
++
++        foreach ($this->order->items as $item) {
++            $invoiceData['invoice']['items'][$item->id] = $item->qty_to_invoice;
++        }
++
++        return $invoiceData;
++    }
++
++}
+diff --git a/packages/Webkul/Braintree/src/Http/Controllers/Controller.php b/packages/Webkul/Braintree/src/Http/Controllers/Controller.php
+new file mode 100755
+index 0000000..4dfe2b3
+--- /dev/null
++++ b/packages/Webkul/Braintree/src/Http/Controllers/Controller.php
+@@ -0,0 +1,13 @@
++<?php
++
++namespace Webkul\Braintree\Http\Controllers;
++
++use Illuminate\Foundation\Bus\DispatchesJobs;
++use Illuminate\Routing\Controller as BaseController;
++use Illuminate\Foundation\Validation\ValidatesRequests;
++use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
++
++class Controller extends BaseController
++{
++    use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
++}
+diff --git a/packages/Webkul/Braintree/src/Http/routes.php b/packages/Webkul/Braintree/src/Http/routes.php
+new file mode 100644
+index 0000000..86036ba
+--- /dev/null
++++ b/packages/Webkul/Braintree/src/Http/routes.php
+@@ -0,0 +1,9 @@
++<?php
++Route::group(['middleware' => ['web']], function () {
++    Route::prefix('braintree/payment')->group(function () {
++
++        Route::get('/direct', 'Webkul\Braintree\Http\Controllers\BraintreeController@redirect')->name('braintree.payment.redirect');
++
++        Route::get('/transaction','Webkul\Braintree\Http\Controllers\BraintreeController@transaction')->name('braintree.payment.transaction');
++    });
++});
+\ No newline at end of file
+diff --git a/packages/Webkul/Braintree/src/Payment/BraintreePayment.php b/packages/Webkul/Braintree/src/Payment/BraintreePayment.php
+new file mode 100644
+index 0000000..d8b057c
+--- /dev/null
++++ b/packages/Webkul/Braintree/src/Payment/BraintreePayment.php
+@@ -0,0 +1,30 @@
++<?php
++
++namespace Webkul\Braintree\Payment;
++use Webkul\Payment\Payment\Payment;
++
++/**
++ * Braintree Method class
++ *
++ * @author Aayush Bhatt <aayush.bhatt172@webkul.com>
++ * @copyright 2019 Webkul Software Pvt Ltd (https://www.webkul.com)
++ */
++class BraintreePayment extends Payment {
++
++    /**
++     * Payment method code
++     *
++     * @var string
++     */
++    protected $code  = 'braintree';
++
++    /**
++     * Return Braintree redirect url
++     *
++     * @var string
++     */
++    public function getRedirectUrl()
++    {
++        return route('braintree.payment.redirect');
++    }
++}
+\ No newline at end of file
+diff --git a/packages/Webkul/Braintree/src/Providers/BraintreeServiceProvider.php b/packages/Webkul/Braintree/src/Providers/BraintreeServiceProvider.php
+new file mode 100644
+index 0000000..7cfc863
+--- /dev/null
++++ b/packages/Webkul/Braintree/src/Providers/BraintreeServiceProvider.php
+@@ -0,0 +1,54 @@
++<?php
++namespace Webkul\Braintree\Providers;
++
++use Illuminate\Support\ServiceProvider;
++use Illuminate\Support\Facades\Schema;
++
++/**
++* Braintree service provider
++*
++* @author    Aayush Bhatt <aayush.bhatt172@webkul.com>
++* @copyright 2019 Webkul Software Pvt Ltd (http://www.webkul.com)
++*/
++class BraintreeServiceProvider extends ServiceProvider
++{
++    /**
++    * Bootstrap services.
++    *
++    * @return void
++    */
++    public function boot()
++    {
++        include __DIR__ . '/../Http/routes.php';
++
++        $this->loadViewsFrom(__DIR__ . '/../Resources/views', 'braintree');
++
++        $this->loadTranslationsFrom(__DIR__ . '/../Resources/lang', 'braintree');
++
++        $this->app->register(EventServiceProvider::class);
++    }
++
++    /**
++    * Register services.
++    *
++    * @return void
++    */
++    public function register()
++    {
++        $this->registerConfig();
++    }
++
++    /**
++     * register Config from
++     */
++    public function registerConfig()
++    {
++        $this->mergeConfigFrom(
++            dirname(__DIR__) . '/Config/system.php', 'core'
++        );
++
++        $this->mergeConfigFrom(
++            dirname(__DIR__) . '/Config/paymentmethods.php', 'paymentmethods'
++        );
++    }
++}
+\ No newline at end of file
+diff --git a/packages/Webkul/Braintree/src/Providers/EventServiceProvider.php b/packages/Webkul/Braintree/src/Providers/EventServiceProvider.php
+new file mode 100644
+index 0000000..ee83998
+--- /dev/null
++++ b/packages/Webkul/Braintree/src/Providers/EventServiceProvider.php
+@@ -0,0 +1,19 @@
++<?php
++
++namespace Webkul\Braintree\Providers;
++
++use Illuminate\Support\ServiceProvider;
++use Illuminate\Support\Facades\Event;
++
++class EventServiceProvider extends ServiceProvider
++{
++    /**
++     * Bootstrap services.
++     *
++     * @return void
++     */
++    public function boot()
++    {
++
++    }
++}
+\ No newline at end of file
+diff --git a/packages/Webkul/Braintree/src/Resources/lang/ar/app.php b/packages/Webkul/Braintree/src/Resources/lang/ar/app.php
+new file mode 100644
+index 0000000..85b413a
+--- /dev/null
++++ b/packages/Webkul/Braintree/src/Resources/lang/ar/app.php
+@@ -0,0 +1,7 @@
++<?php
++
++return  [
++    'proceed-to-payment' => 'الشروع في دفع',
++    'do-not-reload-page' => 'يرجى عدم إعادة تحميل الصفحة أثناء معالجة الدفع',
++    'payment-successfull' => 'تم الدفع بنجاح',
++];
+\ No newline at end of file
+diff --git a/packages/Webkul/Braintree/src/Resources/lang/en/app.php b/packages/Webkul/Braintree/src/Resources/lang/en/app.php
+new file mode 100644
+index 0000000..13e7211
+--- /dev/null
++++ b/packages/Webkul/Braintree/src/Resources/lang/en/app.php
+@@ -0,0 +1,7 @@
++<?php
++
++return  [
++    'proceed-to-payment' => 'Proceed to payment',
++    'do-not-reload-page' => 'Please do not reload the page while payment is processing',
++    'payment-successfull' => 'Payment successful',
++];
+\ No newline at end of file
+diff --git a/packages/Webkul/Braintree/src/Resources/lang/fa/app.php b/packages/Webkul/Braintree/src/Resources/lang/fa/app.php
+new file mode 100644
+index 0000000..bb9c595
+--- /dev/null
++++ b/packages/Webkul/Braintree/src/Resources/lang/fa/app.php
+@@ -0,0 +1,7 @@
++<?php
++
++return  [
++    'proceed-to-payment' => 'به پرداخت پرداخت کنید',
++    'do-not-reload-page' => 'لطفاً هنگام پردازش ، صفحه را بارگیری مجدد کنید',
++    'payment-successfull' => 'پرداخت موفقیت آمیز است',
++];
+\ No newline at end of file
+diff --git a/packages/Webkul/Braintree/src/Resources/lang/nl/app.php b/packages/Webkul/Braintree/src/Resources/lang/nl/app.php
+new file mode 100644
+index 0000000..a1d13c8
+--- /dev/null
++++ b/packages/Webkul/Braintree/src/Resources/lang/nl/app.php
+@@ -0,0 +1,7 @@
++<?php
++
++return  [
++    'proceed-to-payment' =>  'Ga door naar betaling',
++    'do-not-reload-page' => 'Laad de pagina niet opnieuw terwijl de betaling wordt verwerkt',
++    'payment-successfull' => 'Betaling gelukt',
++];
+\ No newline at end of file
+diff --git a/packages/Webkul/Braintree/src/Resources/lang/pt_BR/app.php b/packages/Webkul/Braintree/src/Resources/lang/pt_BR/app.php
+new file mode 100755
+index 0000000..2445052
+--- /dev/null
++++ b/packages/Webkul/Braintree/src/Resources/lang/pt_BR/app.php
+@@ -0,0 +1,7 @@
++<?php
++
++return  [
++    'proceed-to-payment' => 'Prossiga para o pagamento',
++    'do-not-reload-page' => 'Não tente recarregar a página enquanto o pagamento estiver em processamento',
++    'payment-successfull' => 'Pagamento bem sucedido',
++];
+\ No newline at end of file
+diff --git a/packages/Webkul/Braintree/src/Resources/views/drop-in-ui.blade.php b/packages/Webkul/Braintree/src/Resources/views/drop-in-ui.blade.php
+new file mode 100644
+index 0000000..8041397
+--- /dev/null
++++ b/packages/Webkul/Braintree/src/Resources/views/drop-in-ui.blade.php
+@@ -0,0 +1,58 @@
++<head>
++  <meta charset="utf-8">
++  <script src="https://js.braintreegateway.com/web/dropin/1.21.0/js/dropin.min.js"></script>
++  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
++</head>
++<body>
++
++  <div class="container" id="dropin-container"></div>
++  <button class="btn" id="submit-button">{{ __('braintree::app.proceed-to-payment') }}</button>
++  <input type="hidden" id="clientToken" value="{{$clientToken}}"><br><br>
++  <center><b>** {{ __('braintree::app.do-not-reload-page') }} **</b></center>
++  <script>
++    var button = document.querySelector('#submit-button');
++    var clientToken = document.getElementById('clientToken').value;
++    var returnRoute = "{{route('shop.checkout.success')}}"
++
++    braintree.dropin.create({
++      authorization: clientToken,
++      container: '#dropin-container'
++    }, function (createErr, instance) {
++      button.addEventListener('click', function () {
++        instance.requestPaymentMethod(function (err, payload) {
++          // Submit payload.nonce to your server
++
++          $.get('{{ route('braintree.payment.transaction') }}', {payload}, function (response) {
++
++            if(response.success) {
++              location.href = returnRoute;
++            }
++          }, 'json');
++
++        });
++      });
++    });
++  </script>
++
++  <style>
++    .container {
++      width: 50%;
++      margin-left: 25%;
++    }
++    .btn {
++      margin-left: 25%;
++      height: 5%;
++      background-color: #4CAF50;;
++      border:none;
++      color: aliceblue;
++    }
++
++    [data-braintree-id="toggle"] {
++      display: none;
++    }
++
++    b{
++      color:red;
++    }
++  </style>
++</body>
+\ No newline at end of file
+diff --git a/packages/Webkul/Category/src/Http/Controllers/CategoryController.php b/packages/Webkul/Category/src/Http/Controllers/CategoryController.php
+index ece39ef..3ffd311 100755
+--- a/packages/Webkul/Category/src/Http/Controllers/CategoryController.php
++++ b/packages/Webkul/Category/src/Http/Controllers/CategoryController.php
+@@ -2,13 +2,15 @@
+ 
+ namespace Webkul\Category\Http\Controllers;
+ 
++use Attribute;
+ use Illuminate\Support\Facades\Event;
++use Barryvdh\Debugbar\Facades\Debugbar;
+ use Webkul\Admin\DataGrids\CategoryDataGrid;
+-use Webkul\Admin\DataGrids\CategoryProductDataGrid;
+ use Webkul\Core\Repositories\ChannelRepository;
++use Webkul\Category\Http\Requests\CategoryRequest;
++use Webkul\Admin\DataGrids\CategoryProductDataGrid;
+ use Webkul\Category\Repositories\CategoryRepository;
+ use Webkul\Attribute\Repositories\AttributeRepository;
+-use Webkul\Category\Http\Requests\CategoryRequest;
+ 
+ class CategoryController extends Controller
+ {
+@@ -61,6 +63,7 @@ class CategoryController extends Controller
+ 
+         $attributes = $this->attributeRepository->findWhere(['is_filterable' => 1]);
+ 
++        Debugbar::info("ola");
+         return view($this->_config['view'], compact('categories', 'attributes'));
+     }
+ 
+@@ -168,7 +171,7 @@ class CategoryController extends Controller
+     public function massDestroy()
+     {
+         $suppressFlash = true;
+-        
++
+         $categoryIds = explode(',', request()->input('indexes'));
+ 
+         foreach ($categoryIds as $categoryId) {
+@@ -244,7 +247,7 @@ class CategoryController extends Controller
+     public function categoryProductCount()
+     {
+         $productCount = 0;
+-        
++
+         $indexes = explode(',', request()->input('indexes'));
+ 
+         foreach ($indexes as $index) {
+diff --git a/packages/Webkul/Core/src/Database/Seeders/ChannelTableSeeder.php b/packages/Webkul/Core/src/Database/Seeders/ChannelTableSeeder.php
+index 11c8b58..808d258 100755
+--- a/packages/Webkul/Core/src/Database/Seeders/ChannelTableSeeder.php
++++ b/packages/Webkul/Core/src/Database/Seeders/ChannelTableSeeder.php
+@@ -17,8 +17,8 @@ class ChannelTableSeeder extends Seeder
+             'theme'             => 'velocity',
+             'hostname'          => config('app.url'),
+             'root_category_id'  => 1,
+-            'default_locale_id' => 1,
+-            'base_currency_id'  => 1,
++            'default_locale_id' => 6,
++            'base_currency_id'  => 2,
+         ]);
+ 
+         DB::table('channel_translations')->insert([
+@@ -227,17 +227,59 @@ class ChannelTableSeeder extends Seeder
+                         </div>
+                 ',
+                 'home_seo'          => '{"meta_title": "Demo store", "meta_keywords": "Demo store meta keyword", "meta_description": "Demo store meta description"}',
++            ], [
++                'id'                => 6,
++                'channel_id'        => 1,
++                'locale'            => 'pt_BR',
++                'name'              => 'Default',
++                'home_page_content' => '
++                    <p>@include("shop::home.slider") @include("shop::home.featured-products") @include("shop::home.new-products")</p>
++                        <div class="banner-container">
++                        <div class="left-banner">
++                            <img src='.asset("/themes/default/assets/images/1.webp").' data-src='.asset("/themes/default/assets/images/1.webp").' class="lazyload" alt="test" width="720" height="720" />
++                        </div>
++                        <div class="right-banner">
++                            <img src='. asset("/themes/default/assets/images/2.webp").' data-src='. asset("/themes/default/assets/images/2.webp").' class="lazyload" alt="test" width="460" height="330" />
++                            <img src='.asset("/themes/default/assets/images/3.webp").' data-src='.asset("/themes/default/assets/images/3.webp").'  class="lazyload" alt="test" width="460" height="330" />
++                        </div>
++                    </div>
++                ',
++                'footer_content'    => '
++                    <div class="list-container">
++                        <span class="list-heading">Quick Links</span>
++                        <ul class="list-group">
++                            <li><a href="'.route('shop.cms.page', 'about-us').'">About Us</a></li>
++                            <li><a href="'.route('shop.cms.page', 'return-policy').'">Return Policy</a></li>
++                            <li><a href="'.route('shop.cms.page', 'refund-policy') .'">Refund Policy</a></li>
++                            <li><a href="'.route('shop.cms.page', 'terms-conditions').'">Terms and conditions</a></li>
++                            <li><a href="'.route('shop.cms.page', 'terms-of-use').'">Terms of Use</a></li>
++                            <li><a href="'.route('shop.cms.page', 'contact-us') .'">Contact Us</a></li>
++                        </ul>
++                    </div>
++                    <div class="list-container">
++                        <span class="list-heading">Connect With Us</span>
++                            <ul class="list-group">
++                                <li><a href="#"><span class="icon icon-facebook"></span>Facebook </a></li>
++                                <li><a href="#"><span class="icon icon-twitter"></span> Twitter </a></li>
++                                <li><a href="#"><span class="icon icon-instagram"></span> Instagram </a></li>
++                                <li><a href="#"> <span class="icon icon-google-plus"></span>Google+ </a></li>
++                                <li><a href="#"> <span class="icon icon-linkedin"></span>LinkedIn </a></li>
++                            </ul>
++                        </div>
++                ',
++                'home_seo'          => '{"meta_title": "Demo store", "meta_keywords": "Demo store meta keyword", "meta_description": "Demo store meta description"}',
+             ]
++
+         ]);
+ 
+         DB::table('channel_currencies')->insert([
+             'channel_id'  => 1,
+-            'currency_id' => 1,
++            'currency_id' => 2,
+         ]);
+ 
+         DB::table('channel_locales')->insert([
+             'channel_id' => 1,
+-            'locale_id'  => 1,
++            'locale_id'  => 6,
+         ]);
+ 
+         DB::table('channel_inventory_sources')->insert([
+diff --git a/packages/Webkul/Core/src/Database/Seeders/LocalesTableSeeder.php b/packages/Webkul/Core/src/Database/Seeders/LocalesTableSeeder.php
+index b72b8d5..dc82f7e 100755
+--- a/packages/Webkul/Core/src/Database/Seeders/LocalesTableSeeder.php
++++ b/packages/Webkul/Core/src/Database/Seeders/LocalesTableSeeder.php
+@@ -34,6 +34,11 @@ class LocalesTableSeeder extends Seeder
+                 'id'   => 5,
+                 'code' => 'es',
+                 'name' => 'Español',
+-            ]]);
++            ], [
++                'id'   => 6,
++                'code' => 'pt_BR',
++                'name' => 'Português',
++            ]
++        ]);
+     }
+ }
+diff --git a/packages/Webkul/Core/src/Models/Locale.php b/packages/Webkul/Core/src/Models/Locale.php
+index de907f4..4a3aa82 100755
+--- a/packages/Webkul/Core/src/Models/Locale.php
++++ b/packages/Webkul/Core/src/Models/Locale.php
+@@ -25,6 +25,7 @@ class Locale extends Model implements LocaleContract
+         'fr' => 'flags/fr.png',
+         'nl' => 'flags/nl.png',
+         'tr' => 'flags/tr.png',
++        'pt_BR' => 'flags/pt_BR.png',
+     ];
+ 
+     /**
+diff --git a/packages/Webkul/Shop/src/Resources/lang/pt_BR/app.php b/packages/Webkul/Shop/src/Resources/lang/pt_BR/app.php
+index ea99be6..79427bb 100755
+--- a/packages/Webkul/Shop/src/Resources/lang/pt_BR/app.php
++++ b/packages/Webkul/Shop/src/Resources/lang/pt_BR/app.php
+@@ -156,7 +156,7 @@ return [
+             'invalid-creds'       => 'Por favor, verifique suas credenciais e tente novamente',
+             'verify-first'        => 'Verifique seu e-mail primeiro',
+             'resend-verification' => 'Reenviar email de verificação novamente',
+-            'show-password'       => 'show-password',
++            'show-password'       => 'Mostar Senha',
+         ],
+ 
+         'forgot-password' => [
+@@ -223,7 +223,7 @@ return [
+                     'edit'           => 'Editar',
+                     'empty'          => 'Você não tem nenhum endereço salvo aqui, por favor tente criá-lo clicando no link abaixo',
+                     'create'         => 'Criar Endereço',
+-                    'delete'         => 'Deletar',
++                    'delete'         => 'Apagar',
+                     'make-default'   => 'Definir como Padrão',
+                     'default'        => 'Padrão',
+                     'contact'        => 'Contato',
+@@ -449,8 +449,8 @@ return [
+         'buy-now'                  => 'Comprar Agora',
+         'whoops'                   => 'Oppss!',
+         'quantity'                 => 'Quantidade',
+-        'in-stock'                 => 'Em Estoque',
+-        'out-of-stock'             => 'Fora de Estoque',
++        'in-stock'                 => 'Em Stock',
++        'out-of-stock'             => 'Fora de Stock',
+         'view-all'                 => 'Ver Tudo',
+         'select-above-options'     => 'Por favor, selecione as opções acima primeiro.',
+         'less-quantity'            => 'A quantidade não pode ser menor que um.',
+@@ -566,8 +566,8 @@ return [
+             'payment-method-name' => [
+                 'PayPal Smart Button' => 'Botão Inteligente do PayPal',
+                 'PayPal'              => 'PayPal',
+-                'Cash On Delivery'    => 'Dinheiro na entrega',          
+-                'Money Transfer'      => 'Transferência de dinheiro',        
++                'Cash On Delivery'    => 'Dinheiro na entrega',
++                'Money Transfer'      => 'Transferência de dinheiro',
+                 'Paypal Standard'     => 'Padrão do PayPal'
+             ],
+             'summary'           => 'Resumo do Pedido',
+diff --git a/packages/Webkul/SocialLogin/src/Database/Seeders/CustomerSocialAccountTableSeeder.php b/packages/Webkul/SocialLogin/src/Database/Seeders/CustomerSocialAccountTableSeeder.php
+index 0303898..525fb1d 100644
+--- a/packages/Webkul/SocialLogin/src/Database/Seeders/CustomerSocialAccountTableSeeder.php
++++ b/packages/Webkul/SocialLogin/src/Database/Seeders/CustomerSocialAccountTableSeeder.php
+@@ -26,7 +26,7 @@ class CustomerSocialAccountTableSeeder extends Seeder
+         DB::table('core_config')->insert(
+             [
+                 'code'         => 'customer.settings.social_login.enable_twitter',
+-                'value'         => '1',
++                'value'         => '0',
+                 'channel_code' => 'default',
+                 'locale_code'  => null,
+                 'created_at'   => $now,
+@@ -48,7 +48,7 @@ class CustomerSocialAccountTableSeeder extends Seeder
+         DB::table('core_config')->insert(
+             [
+                 'code'         => 'customer.settings.social_login.enable_linkedin',
+-                'value'         => '1',
++                'value'         => '0',
+                 'channel_code' => 'default',
+                 'locale_code'  => null,
+                 'created_at'   => $now,
+@@ -59,7 +59,7 @@ class CustomerSocialAccountTableSeeder extends Seeder
+         DB::table('core_config')->insert(
+             [
+                 'code'         => 'customer.settings.social_login.enable_github',
+-                'value'         => '1',
++                'value'         => '0',
+                 'channel_code' => 'default',
+                 'locale_code'  => null,
+                 'created_at'   => $now,
+diff --git a/packages/Webkul/SocialLogin/src/Resources/lang/pt_BR/app.php b/packages/Webkul/SocialLogin/src/Resources/lang/pt_BR/app.php
+new file mode 100644
+index 0000000..c628c18
+--- /dev/null
++++ b/packages/Webkul/SocialLogin/src/Resources/lang/pt_BR/app.php
+@@ -0,0 +1,28 @@
++<?php
++
++return [
++    'admin' => [
++        'system' => [
++            'social-login' => 'Social Login',
++            'enable-facebook' => 'Enable Facebook',
++            'enable-twitter' => 'Enable Twitter',
++            'enable-google' => 'Enable Google',
++            'enable-twitter' => 'Enable Twitter',
++            'enable-linkedin' => 'Enable LinkedIn',
++            'enable-github' => 'Enable Github'
++        ]
++    ],
++
++    'shop' => [
++        'customer' => [
++            'login-form' => [
++                'continue-with-facebook' => 'Continue With Facebook',
++                'continue-with-twitter' => 'Continue With Twitter',
++                'continue-with-google' => 'Continue With Google',
++                'continue-with-linkedin' => 'Continue With LinkedIn',
++                'continue-with-github' => 'Continue With Github',
++                'or' => 'Ou'
++            ]
++        ]
++    ]
++];
+\ No newline at end of file
+diff --git a/packages/Webkul/Ui/src/Resources/assets/sass/includes/components.scss b/packages/Webkul/Ui/src/Resources/assets/sass/includes/components.scss
+index cbc277f..ef449ed 100755
+--- a/packages/Webkul/Ui/src/Resources/assets/sass/includes/components.scss
++++ b/packages/Webkul/Ui/src/Resources/assets/sass/includes/components.scss
+@@ -72,7 +72,7 @@
+     align-items: flex-start;
+     flex-wrap: wrap;
+     margin-bottom: 10px;
+-    
++
+     p {
+         cursor: pointer;
+     }
+diff --git a/packages/Webkul/Ui/src/Resources/lang/pt_BR/app.php b/packages/Webkul/Ui/src/Resources/lang/pt_BR/app.php
+index 291b385..e6b3bce 100755
+--- a/packages/Webkul/Ui/src/Resources/lang/pt_BR/app.php
++++ b/packages/Webkul/Ui/src/Resources/lang/pt_BR/app.php
+@@ -23,7 +23,7 @@ return [
+         'filter-fields-missing' => 'Alguns dos campos obrigatórios são nulos, por favor verifique coluna, condição e valor corretamente',
+         'filter-exists'         => 'Filter value already exists.',
+         'click_on_action'       => 'Você realmente quer realizar esta ação?',
+-        'search'                => 'Busque Aqui...',
++        'search'                => 'Procure Aqui...',
+         'search-title'          => 'Procurar',
+         'channel'               => 'Canal',
+         'locale'                => 'Localidade',
+diff --git a/packages/Webkul/Velocity/publishable/assets/fonts/Oruguitas.otf b/packages/Webkul/Velocity/publishable/assets/fonts/Oruguitas.otf
+new file mode 100644
+index 0000000..8e39594
+Binary files /dev/null and b/packages/Webkul/Velocity/publishable/assets/fonts/Oruguitas.otf differ
+diff --git a/packages/Webkul/Velocity/publishable/assets/fonts/Oruguitas.woff2 b/packages/Webkul/Velocity/publishable/assets/fonts/Oruguitas.woff2
+new file mode 100644
+index 0000000..2f0f807
+Binary files /dev/null and b/packages/Webkul/Velocity/publishable/assets/fonts/Oruguitas.woff2 differ
+diff --git a/packages/Webkul/Velocity/publishable/assets/images/flags/pt_BR.png b/packages/Webkul/Velocity/publishable/assets/images/flags/pt_BR.png
+new file mode 100644
+index 0000000..8903a7b
+Binary files /dev/null and b/packages/Webkul/Velocity/publishable/assets/images/flags/pt_BR.png differ
+diff --git a/packages/Webkul/Velocity/src/Database/Seeders/VelocityMetaDataSeeder.php b/packages/Webkul/Velocity/src/Database/Seeders/VelocityMetaDataSeeder.php
+index b879850..69a18a8 100644
+--- a/packages/Webkul/Velocity/src/Database/Seeders/VelocityMetaDataSeeder.php
++++ b/packages/Webkul/Velocity/src/Database/Seeders/VelocityMetaDataSeeder.php
+@@ -21,7 +21,7 @@ class VelocityMetaDataSeeder extends Seeder
+ 
+                 'header_content_count'     => "5",
+                 'channel'                  => "default",
+-                'home_page_content'        => "<p>@include('shop::home.advertisements.advertisement-four')@include('shop::home.featured-products') @include('shop::home.product-policy') @include('shop::home.advertisements.advertisement-three') @include('shop::home.new-products') @include('shop::home.advertisements.advertisement-two')</p>",
++                'home_page_content'        => "<p>@include('shop::home.slider')@include('shop::home.featured-products') @include('shop::home.product-policy') @include('shop::home.advertisements.advertisement-three') @include('shop::home.new-products')</p>",
+                 'footer_left_content'      => __('velocity::app.admin.meta-data.footer-left-raw-content'),
+ 
+                 'footer_middle_content'    => '<div class="col-lg-6 col-md-12 col-sm-12 no-padding"><ul type="none"><li><a href="{!! url(\'page/about-us\') !!}">About Us</a></li><li><a href="{!! url(\'page/cutomer-service\') !!}">Customer Service</a></li><li><a href="{!! url(\'page/whats-new\') !!}">What&rsquo;s New</a></li><li><a href="{!! url(\'page/contact-us\') !!}">Contact Us </a></li></ul></div><div class="col-lg-6 col-md-12 col-sm-12 no-padding"><ul type="none"><li><a href="{!! url(\'page/return-policy\') !!}"> Order and Returns </a></li><li><a href="{!! url(\'page/payment-policy\') !!}"> Payment Policy </a></li><li><a href="{!! url(\'page/shipping-policy\') !!}"> Shipping Policy</a></li><li><a href="{!! url(\'page/privacy-policy\') !!}"> Privacy and Cookies Policy </a></li></ul></div>',
+@@ -117,7 +117,7 @@ class VelocityMetaDataSeeder extends Seeder
+             ],
+             [
+                 'code'         => 'general.content.shop.compare_option',
+-                'value'        => '1',
++                'value'        => '0',
+                 'channel_code' => 'default',
+                 'locale_code'  => 'pt_BR',
+                 'created_at'   => $now,
+@@ -313,7 +313,7 @@ class VelocityMetaDataSeeder extends Seeder
+             ],
+             [
+                 'code'         => 'general.content.shop.image_search',
+-                'value'        => '1',
++                'value'        => '0',
+                 'channel_code' => 'default',
+                 'locale_code'  => 'pt_BR',
+                 'created_at'   => $now,
+diff --git a/packages/Webkul/Velocity/src/Resources/assets/images/olasnog_acessorios.png b/packages/Webkul/Velocity/src/Resources/assets/images/olasnog_acessorios.png
+new file mode 100644
+index 0000000..ae945ba
+Binary files /dev/null and b/packages/Webkul/Velocity/src/Resources/assets/images/olasnog_acessorios.png differ
+diff --git a/packages/Webkul/Velocity/src/Resources/assets/images/olasnog_tshirts.png b/packages/Webkul/Velocity/src/Resources/assets/images/olasnog_tshirts.png
+new file mode 100644
+index 0000000..8ecd1dd
+Binary files /dev/null and b/packages/Webkul/Velocity/src/Resources/assets/images/olasnog_tshirts.png differ
+diff --git a/packages/Webkul/Velocity/src/Resources/assets/js/UI/components/categories-home.vue b/packages/Webkul/Velocity/src/Resources/assets/js/UI/components/categories-home.vue
+new file mode 100644
+index 0000000..ffde0f7
+--- /dev/null
++++ b/packages/Webkul/Velocity/src/Resources/assets/js/UI/components/categories-home.vue
+@@ -0,0 +1,79 @@
++<template>
++    <nav :class="`sidebar home ${addClass ? addClass : ''}`" v-if="slicedCategories && slicedCategories.length > 0">
++        <button style="width: 100%" class="btn small-padding theme-btn">Categorias</button>
++        <ul type="none" style="margin-bottom: 0">
++            <li :key="categoryIndex" :id="`category-${category.id}`" class="category-content cursor-pointer"
++                v-for="(category, categoryIndex) in slicedCategories">
++                <a :href="`${$root.baseUrl}/${category.slug}`" :class="`category unset ${category.children.length > 0 ? 'fw6' : ''
++                    }`">
++                    <div class="category-icon">
++                        <img v-if="category.category_icon_url" :src="category.category_icon_url" width="20" height="20" />
++                    </div>
++
++                    <span class="category-title">{{ category['name'] }}</span>
++
++                    <i class="rango-arrow-right pr15 float-right" v-if="
++                        category.children.length &&
++                        category.children.length > 0
++                    ">
++                    </i>
++                </a>
++
++            </li>
++        </ul>
++    </nav>
++</template>
++
++<script type="text/javascript">
++export default {
++    props: ['id', 'addClass', 'parentSlug', 'mainSidebar', 'categoryCount'],
++
++    data: function () {
++        return {
++            slicedCategories: [],
++            sidebarLevel: Math.floor(Math.random() * 1000),
++        };
++    },
++
++    watch: {
++        '$root.sharedRootCategories': function (categories) {
++            this.formatCategories(categories);
++        },
++    },
++
++    methods: {
++        remainBar: function (id) {
++            let sidebar = $(`#${id}`);
++
++            if (sidebar && sidebar.length > 0) {
++                sidebar.show();
++
++                let actualId = id.replace('sidebar-level-', '');
++
++                let sidebarContainer = sidebar.closest(
++                    `.sub-category-${actualId}`
++                );
++
++                if (sidebarContainer && sidebarContainer.length > 0) {
++                    sidebarContainer.show();
++                }
++            }
++        },
++
++        formatCategories: function (categories) {
++            let slicedCategories = categories;
++            let categoryCount = this.categoryCount ? this.categoryCount : 9;
++
++            if (slicedCategories && slicedCategories.length > categoryCount) {
++                slicedCategories = categories.slice(0, categoryCount);
++            }
++
++            if (this.parentSlug) {
++                slicedCategories['parentSlug'] = this.parentSlug;
++            }
++
++            this.slicedCategories = slicedCategories;
++        },
++    },
++};
++</script>
+diff --git a/packages/Webkul/Velocity/src/Resources/assets/js/app.js b/packages/Webkul/Velocity/src/Resources/assets/js/app.js
+index c7c23ee..75fc7d5 100644
+--- a/packages/Webkul/Velocity/src/Resources/assets/js/app.js
++++ b/packages/Webkul/Velocity/src/Resources/assets/js/app.js
+@@ -49,6 +49,7 @@ Vue.filter('currency', function(value, argument) {
+ /**
+  * Global components.
+  */
++Vue.component('categories-home', () => import('@components/categories-home'));
+ Vue.component('vue-slider', () => import('vue-slider-component'));
+ Vue.component('mini-cart-button', () => import('@components/mini-cart-button'));
+ Vue.component('mini-cart', () => import('@components/mini-cart'));
+diff --git a/packages/Webkul/Velocity/src/Resources/assets/sass/app.scss b/packages/Webkul/Velocity/src/Resources/assets/sass/app.scss
+index 7f9d66e..f9f35c8 100755
+--- a/packages/Webkul/Velocity/src/Resources/assets/sass/app.scss
++++ b/packages/Webkul/Velocity/src/Resources/assets/sass/app.scss
+@@ -415,13 +415,20 @@ label {
+     }
+ }
+ 
++.banner-icon {
++    // width: 500px;
++}
++
+ header {
+     .logo {
+         height: 46px;
+         padding-left: 10px;
++        font-family: Oruguitas, sans-serif;
++        color: black;
+     }
+ 
+     #search-form {
++        width: 100%;
+         height: 40px;
+         margin: 8px 0px;
+         background: $white-color;
+@@ -431,7 +438,7 @@ header {
+         }
+ 
+         .btn-group {
+-            max-width: 550px;
++            // max-width: 550px;
+ 
+             .selectdiv {
+                 width: 210px;
+@@ -453,7 +460,7 @@ header {
+                 border-radius: 2px 0px 0px 2px;
+                 border: 1px solid $theme-color;
+                 border-right: 0;
+-                font-family: 'Source Sans Pro', sans-serif;
++                font-family: 'Inter', sans-serif;
+ 
+                 -webkit-appearance: none;
+                 -moz-appearance: none;
+@@ -783,7 +790,7 @@ header {
+     }
+ 
+     .secondary-navbar {
+-        background-color: #4d7ea8;
++        // background-color: #4d7ea8;
+         min-height: 40px;
+         padding: 5px;
+         vertical-align: middle;
+@@ -971,7 +978,7 @@ i.within-circle {
+     display: inline-block !important;
+     max-width: 100% !important;
+     margin-bottom: 5px !important;
+-    font-weight: 100 !important;
++    // font-weight: 300 !important;
+     font-size: 16px !important;
+ }
+ 
+@@ -1155,7 +1162,7 @@ i.within-circle {
+     padding-left: 0 !important;
+     padding-top: 0 !important;
+     line-height: 2.0rem !important;
+-    
++
+     i {
+         margin-top: 8px !important;
+     }
+diff --git a/packages/Webkul/Velocity/src/Resources/assets/sass/components/app.scss b/packages/Webkul/Velocity/src/Resources/assets/sass/components/app.scss
+index 78bc54e..453c066 100755
+--- a/packages/Webkul/Velocity/src/Resources/assets/sass/components/app.scss
++++ b/packages/Webkul/Velocity/src/Resources/assets/sass/components/app.scss
+@@ -856,7 +856,7 @@
+         .customer-sidebar {
+             position: sticky;
+             top: 40px;
+-            
++
+             .account-details {
+                 text-align: center;
+                 padding: 25px 20px;
+@@ -1710,6 +1710,22 @@
+     background-color: $light1-black;
+ }
+ 
++.home {
++    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.09), 0 3px 2px rgba(0, 0, 0, 0.10) !important;
++    .category-content {
++        padding: 5px;
++        // height: 40px;
++        .category-title {
++            font-size: 18px;
++        }
++        .category-icon {
++            height: 35px !important;
++            width: 35px !important;
++        }
++    }
++
++}
++
+ .sidebar {
+     z-index: 1000000;
+     width: $sidebar-width;
+@@ -1717,8 +1733,10 @@
+     .category-content {
+         .category-title {
+             top: -1px;
+-            font-weight: 600;
++            // font-weight: 600;
+             position: relative;
++            padding-left: 5px;
++            vertical-align: middle;
+         }
+ 
+         .rango-arrow-right {
+@@ -1728,14 +1746,13 @@
+ 
+         .category-icon {
+             width: 25px;
+-            height: 20px;
+-            padding-right: 5px;
++            height: 25px;
+             display: inline-block;
+ 
+             img {
+                 width: 100%;
+                 height: 100%;
+-                vertical-align: text-top;
++                // vertical-align: text-top;
+             }
+         }
+     }
+@@ -1753,7 +1770,7 @@
+ 
+         .category {
+             padding: 5px 0 4px 15px;
+-            
++
+             + .nested {
+                 color: $font-color;
+ 
+@@ -1776,11 +1793,14 @@
+     }
+ }
+ 
++.category-list-container-navbar {
++    position: absolute !important;
++}
++
+ .category-list-container {
+     z-index: 10;
+     padding: 0px !important;
+     background: $white-color;
+-    position: absolute !important;
+     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+ 
+     .category {
+@@ -2275,6 +2295,7 @@
+     margin: 0 !important;
+     padding: 0 !important;
+     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.16), 0 1px 3px rgba(0, 0, 0, 0.23);
++    border-top: 1px solid $border-common;
+ }
+ 
+ .new-products-recent {
+diff --git a/packages/Webkul/Velocity/src/Resources/assets/sass/components/home.scss b/packages/Webkul/Velocity/src/Resources/assets/sass/components/home.scss
+index 3ce2aa9..5d1cdcf 100644
+--- a/packages/Webkul/Velocity/src/Resources/assets/sass/components/home.scss
++++ b/packages/Webkul/Velocity/src/Resources/assets/sass/components/home.scss
+@@ -120,6 +120,8 @@ header #search-form > *:focus {
+ /* advertisements */
+ .advertisement-four-container {
+     .offers-ct-panel {
++        padding-left: 0;
++
+         > .row {
+             padding: 0 10px;
+         }
+@@ -129,11 +131,12 @@ header #search-form > *:focus {
+         }
+ 
+         .offers-ct-top {
+-            height: 180px;
++            height: 240px;
+         }
+ 
+         .offers-ct-bottom {
+-            height: 220px;
++            height: 240px;
++            margin-top: 30px;
+         }
+     }
+ 
+@@ -147,9 +150,9 @@ header #search-form > *:focus {
+     }
+ 
+     img {
+-        width: 100%;
+-        height: 100%;
+-        max-height: 425px;
++        // width: 100%;
++        // height: 100%;
++        // max-height: 425px;
+     }
+ 
+     img:nth-of-type(1),
+@@ -470,8 +473,8 @@ header #search-form > *:focus {
+     }
+ 
+     .main-category {
+-        padding: 10px 15px;
+-        border-top: 1px solid $border-common;
++        padding: 11px 15px;
++        // border-top: 1px solid $border-common;
+ 
+         .pl5 {
+             vertical-align: top;
+@@ -493,7 +496,7 @@ header #search-form > *:focus {
+             height: 100%;
+             white-space: nowrap;
+             display: inline-flex;
+-            background-color: $link-color;
++            // background-color: $link-color;
+             overflow-x: auto;
+ 
+             li {
+@@ -642,7 +645,7 @@ body::after {
+         form {
+             float: right;
+         }
+-        
++
+         .compare-icon,
+         .wishlist-icon {
+             height: 38px;
+@@ -719,7 +722,7 @@ body::after {
+ 
+ .slider-container {
+     min-height: 400px;
+-    margin-bottom: 20px;
++    // margin-bottom: 20px;
+ }
+ 
+ .remove-padding-margin {
+diff --git a/packages/Webkul/Velocity/src/Resources/assets/sass/components/media.scss b/packages/Webkul/Velocity/src/Resources/assets/sass/components/media.scss
+index 1fa0da0..47be6e0 100644
+--- a/packages/Webkul/Velocity/src/Resources/assets/sass/components/media.scss
++++ b/packages/Webkul/Velocity/src/Resources/assets/sass/components/media.scss
+@@ -38,7 +38,7 @@
+             }
+ 
+             .footer-statics {
+-                > div:not(:last-child) {
++                >div:not(:last-child) {
+                     margin-bottom: 30px;
+                 }
+             }
+@@ -50,7 +50,7 @@
+     }
+ }
+ 
+-@media only screen and (max-width: 992px) {
++@media only screen and (max-width: 1240px) {
+     $header-height: 50px;
+ 
+     body {
+@@ -93,7 +93,7 @@
+ 
+     .main-content-wrapper {
+         z-index: 100;
+-        margin-bottom: 25px;
++        // margin-bottom: 25px;
+         background-color: $white-color;
+ 
+         .vc-header {
+@@ -105,11 +105,11 @@
+             box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16),
+                 0 3px 6px rgba(0, 0, 0, 0.23);
+ 
+-            > div {
++            >div {
+                 display: none;
+             }
+ 
+-            > div.vc-small-screen {
++            >div.vc-small-screen {
+                 display: block;
+ 
+                 img {
+@@ -136,7 +136,7 @@
+                     text-align: right;
+                     height: $header-height;
+ 
+-                    > a {
++                    >a {
+                         display: table-cell;
+                         vertical-align: middle;
+                     }
+@@ -194,7 +194,7 @@
+                         }
+                     }
+ 
+-                    ~ a {
++                    ~a {
+                         position: relative;
+ 
+                         &.compare-icon {
+@@ -218,7 +218,7 @@
+ 
+     .advertisement-four-container {
+         .offers-ct-panel {
+-            padding: 8px 0;
++            // padding-left: 0;
+ 
+             a:first-child {
+                 padding-bottom: 10px !important;
+@@ -227,6 +227,7 @@
+     }
+ 
+     .advertisement-three-container {
++
+         .top-container,
+         .bottom-container {
+             img {
+@@ -408,7 +409,7 @@
+                 .selectdiv {
+                     display: none;
+ 
+-                    + input {
++                    +input {
+                         width: calc(100% - 40px);
+                         border: 1px solid $theme-color;
+                     }
+@@ -426,13 +427,14 @@
+             display: block !important;
+         }
+ 
+-        + .recently-viewed {
++        +.recently-viewed {
+             top: 0;
+             position: static;
+         }
+     }
+ 
+     .reviews-container {
++
+         .review-wrapper,
+         .review-wrapper:nth-of-type(1),
+         .review-wrapper:nth-last-of-type(1),
+@@ -469,14 +471,15 @@
+         }
+ 
+         .customer-rating {
+-            > .row {
+-                > div {
++            >.row {
++                >div {
+                     margin-bottom: 30px;
+                 }
+             }
+         }
+ 
+         .arrow {
++
+             &.left,
+             &.right {
+                 display: none;
+@@ -485,7 +488,7 @@
+ 
+         .thumb-list {
+             .thumb-frame {
+-                > .bg-image {
++                >.bg-image {
+                     background-size: contain;
+                 }
+             }
+@@ -493,19 +496,19 @@
+     }
+ 
+     .review-page-container {
+-        > div {
++        >div {
+             padding: 0;
+         }
+ 
+-        > div:not(:last-child) {
++        >div:not(:last-child) {
+             position: relative;
+             margin-bottom: 60px;
+         }
+     }
+ 
+     .customer-rating {
+-        > .row {
+-            > div:not(:last-child) {
++        >.row {
++            >div:not(:last-child) {
+                 margin-bottom: 20px;
+             }
+         }
+@@ -513,11 +516,11 @@
+ 
+     .auth-content {
+         &.form-container {
+-            > .container {
++            >.container {
+                 margin: 0;
+                 width: 100%;
+ 
+-                > div:first-child {
++                >div:first-child {
+                     padding: 0;
+ 
+                     .body {
+@@ -539,7 +542,7 @@
+             padding-left: 0px !important;
+             padding-right: 0px !important;
+ 
+-            > div {
++            >div {
+                 padding: 0 10px;
+ 
+                 &:first-child {
+@@ -559,7 +562,7 @@
+                 box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.21);
+ 
+                 .toolbar-wrapper {
+-                    > div.col-4 {
++                    >div.col-4 {
+                         margin: 0;
+                         padding: 0;
+                         display: table;
+@@ -608,7 +611,7 @@
+                 padding-left: 10px;
+                 margin: 13px 0px 13px 0px;
+ 
+-                > i {
++                >i {
+                     font-size: 26px;
+                     display: table-cell;
+                     vertical-align: middle;
+@@ -635,7 +638,7 @@
+                 background-color: $white-color;
+                 border-bottom: 1px solid $border-common;
+ 
+-                > i {
++                >i {
+                     font-size: 26px;
+                     display: table-cell;
+                     vertical-align: middle;
+@@ -749,7 +752,7 @@
+                 width: 100%;
+                 display: table;
+ 
+-                > * {
++                >* {
+                     display: table-cell;
+                     vertical-align: middle;
+                 }
+@@ -813,13 +816,14 @@
+         }
+ 
+         .cart-item-list {
+-            > div {
++            >div {
+                 margin: 0;
+                 padding: 0;
+             }
+         }
+ 
+         .product-price {
++
+             span:nth-child(1),
+             .special-price {
+                 font-size: 18px;
+@@ -842,7 +846,7 @@
+         padding-right: 0 !important;
+ 
+         h1,
+-        > div {
++        >div {
+             padding: 0;
+         }
+ 
+@@ -852,7 +856,7 @@
+     }
+ 
+     .address-holder {
+-        > div {
++        >div {
+             padding-right: 0;
+             padding-bottom: 15px;
+         }
+@@ -1038,6 +1042,7 @@
+         }
+ 
+         .offers-ct-panel {
++            padding-left: 0;
+             min-height: 425px;
+         }
+     }
+@@ -1050,3 +1055,11 @@
+         }
+     }
+ }
++
++@media only screen and (max-width: 992px) {
++    .advertisement-four-container {
++        .offers-ct-panel {
++            display: none;
++        }
++    }
++}
+\ No newline at end of file
+diff --git a/packages/Webkul/Velocity/src/Resources/assets/sass/main/_rango.scss b/packages/Webkul/Velocity/src/Resources/assets/sass/main/_rango.scss
+index 98441fa..d609453 100644
+--- a/packages/Webkul/Velocity/src/Resources/assets/sass/main/_rango.scss
++++ b/packages/Webkul/Velocity/src/Resources/assets/sass/main/_rango.scss
+@@ -23,6 +23,14 @@
+     font-display: swap;
+ }
+ 
++@font-face {
++    font-family: 'Oruguitas';
++    src: url("../fonts/Oruguitas.otf") format("opentype");
++    font-weight: normal;
++    font-style: normal;
++    font-display: swap;
++}
++
+ .wk-icon {
+     font-size: 20px;
+     font-weight: 400;
+diff --git a/packages/Webkul/Velocity/src/Resources/assets/sass/main/_variables.scss b/packages/Webkul/Velocity/src/Resources/assets/sass/main/_variables.scss
+index 1db4bf4..17b5c6a 100755
+--- a/packages/Webkul/Velocity/src/Resources/assets/sass/main/_variables.scss
++++ b/packages/Webkul/Velocity/src/Resources/assets/sass/main/_variables.scss
+@@ -7,8 +7,8 @@
+ |
+ */
+ /* theme colors */
+-$theme-color: #26A37C;
+-$theme-dark-color: #247959;
++$theme-color: #e66a4e;
++$theme-dark-color: #af5642;
+ 
+ /* background colors */
+ $light-background: #F7F7F9;
+@@ -19,7 +19,7 @@ $font-color-light: rgba(255, 255, 255, 0.83);
+ 
+ /* button colors */
+ $button-danger: #F05153;
+-$button-primary-bg: #21A179;
++$button-primary-bg: #4D7EA8;
+ $button-text-color: #FFFFFF;
+ 
+ /* border colors */
+@@ -28,7 +28,7 @@ $border-danger: #F05153;
+ $border-dark: #DCDCDC;
+ $border-general: #E5E5E5;
+ $border-light: #ECECEC;
+-$border-primary: #269c77;
++$border-primary: #4D7EA8;
+ 
+ /* link colors */
+ $link-color: #4D7EA8;
+@@ -43,11 +43,11 @@ $light2-black: #cfcfd0;
+ $white-color: #FFFFFF;
+ 
+ /* other stuffs */
+-$sidebar-width: 230px;
++$sidebar-width: 240px;
+ $box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+ $material-icons-font-path: '../material-icons/iconfont/' !default;
+ $border-normal: 1px solid $border-dark;
+-$font-family-pro: 'Source Sans Pro', sans-serif;
++$font-family-pro: 'Inter', sans-serif;
+ 
+ 
+ $control-border-color: #C7C7C7;
+diff --git a/packages/Webkul/Velocity/src/Resources/lang/pt_BR/app.php b/packages/Webkul/Velocity/src/Resources/lang/pt_BR/app.php
+index 22f48ae..d2f354b 100644
+--- a/packages/Webkul/Velocity/src/Resources/lang/pt_BR/app.php
++++ b/packages/Webkul/Velocity/src/Resources/lang/pt_BR/app.php
+@@ -254,7 +254,7 @@ return [
+         'reviewed' => 'Revisada',
+         'reviews' => 'Avaliações',
+         'review-by' => 'Revisão por',
+-        'quick-view' => 'Olhada rápida',
++        'quick-view' => 'Vista rápida',
+         'submit-review' => 'Enviar revisão',
+         'not-available' => 'Não disponível',
+         'ratings' => ':total Ratings Avaliações',
+diff --git a/packages/Webkul/Velocity/src/Resources/views/shop/home/advertisements/advertisement-four.blade.php b/packages/Webkul/Velocity/src/Resources/views/shop/home/advertisements/advertisement-four.blade.php
+index d45a59c..dbce72b 100644
+--- a/packages/Webkul/Velocity/src/Resources/views/shop/home/advertisements/advertisement-four.blade.php
++++ b/packages/Webkul/Velocity/src/Resources/views/shop/home/advertisements/advertisement-four.blade.php
+@@ -1,20 +1,14 @@
+ @php
+     $isRendered = false;
+     $advertisementFour = null;
+-    $isLazyLoad = ! isset($lazyload) ? true : ( $lazyload ? true : false );
++    $isLazyLoad = !isset($lazyload) ? true : ($lazyload ? true : false);
+ @endphp
+ 
+-@if (
+-    $velocityMetaData
+-    && $velocityMetaData->advertisement
+-)
++{{-- @if ($velocityMetaData && $velocityMetaData->advertisement)
+     @php
+         $advertisement = json_decode($velocityMetaData->advertisement, true);
+ 
+-        if (
+-            isset($advertisement[4])
+-            && is_array($advertisement[4])
+-        ) {
++        if (isset($advertisement[4]) && is_array($advertisement[4])) {
+             $advertisementFour = array_values(array_filter($advertisement[4]));
+         }
+     @endphp
+@@ -24,94 +18,43 @@
+             $isRendered = true;
+         @endphp
+ 
+-        <div class="container-fluid advertisement-four-container">
+-            <div class="row">
+-                <div class="col-lg-4 col-12 advertisement-container-block no-padding">
+-                    @if (isset($advertisementFour[0]))
+-                        <a @if (isset($one)) href="{{ $one }}" @endif aria-label="Advertisement">
+-                            <img
+-                                class="{{ $isLazyLoad ? 'lazyload' : '' }}"
+-                                @if (! $isLazyLoad) src="{{ Storage::url($advertisementFour[0]) }}" @endif
+-                                data-src="{{ Storage::url($advertisementFour[0]) }}" alt="" />
+-                        </a>
+-                    @endif
+-                </div>
+ 
+-                <div class="col-lg-4 col-12 advertisement-container-block offers-ct-panel">
+-                    @if (isset($advertisementFour[1]))
+-                        <a @if (isset($two)) href="{{ $two }}" @endif class="row col-12 remove-padding-margin" aria-label="Advertisement">
+-                            <img
+-                                class="offers-ct-top {{ $isLazyLoad ? 'lazyload' : '' }}"
+-                                @if (! $isLazyLoad) src="{{ Storage::url($advertisementFour[1]) }}" @endif
+-                                data-src="{{ Storage::url($advertisementFour[1]) }}" alt="" />
+-                        </a>
+-                    @endif
+-
+-                    <div style="height: 10px;"></div>
+-
+-                    @if (isset($advertisementFour[2]))
+-                        <a @if (isset($three)) href="{{ $three }}" @endif class="row col-12 remove-padding-margin" aria-label="Advertisement">
+-                            <img
+-                                class="offers-ct-bottom {{ $isLazyLoad ? 'lazyload' : '' }}"
+-                                @if (! $isLazyLoad) src="{{ Storage::url($advertisementFour[2]) }}" @endif
+-                                data-src="{{ Storage::url($advertisementFour[2]) }}" alt="" />
+-                        </a>
+-                    @endif
+-                </div>
+-
+-                <div class="col-lg-4 col-12 advertisement-container-block no-padding">
+-                    @if (isset($advertisementFour[3]))
+-                        <a @if (isset($four)) href="{{ $four }}" @endif aria-label="Advertisement">
+-                            <img
+-                                class="{{ $isLazyLoad ? 'lazyload' : '' }}"
+-                                @if (! $isLazyLoad) src="{{ Storage::url($advertisementFour[3]) }}" @endif
+-                                data-src="{{ Storage::url($advertisementFour[3]) }}" alt="" />
+-                        </a>
+-                    @endif
+-                </div>
+-            </div>
+-        </div>
+-    @endif
+-@endif
+-
+-@if (! $isRendered)
+-    <div class="container-fluid advertisement-four-container">
+-        <div class="row">
+-            <div class="col-lg-4 col-12 advertisement-container-block no-padding">
+-                <a @if (isset($one)) href="{{ $one }}" @endif aria-label="Advertisement">
+-                    <img
+-                        class="{{ $isLazyLoad ? 'lazyload' : '' }}"
+-                        @if (! $isLazyLoad) src="{{ asset('/themes/velocity/assets/images/big-sale-banner.webp') }}" @endif
+-                        data-src="{{ asset('/themes/velocity/assets/images/big-sale-banner.webp') }}" alt="" />
++        <div class="col-lg-4 col-12 advertisement-container-block offers-ct-panel">
++            @if (isset($advertisementFour[1]))
++                <a @if (isset($two)) href="{{ $two }}" @endif
++                    class="row col-12 remove-padding-margin" aria-label="Advertisement">
++                    <img class="offers-ct-top {{ $isLazyLoad ? 'lazyload' : '' }}"
++                        @if (!$isLazyLoad) src="{{ Storage::url($advertisementFour[1]) }}" @endif
++                        data-src="{{ Storage::url($advertisementFour[1]) }}" alt="" />
+                 </a>
+-            </div>
++            @endif
+ 
+-            <div class="col-lg-4 col-12 advertisement-container-block offers-ct-panel">
+-                <a @if (isset($two)) href="{{ $two }}" @endif aria-label="Advertisement">
+-                    <img
+-                        class="offers-ct-top {{ $isLazyLoad ? 'lazyload' : '' }}"
+-                        @if (! $isLazyLoad) src="{{ asset('/themes/velocity/assets/images/seasons.webp') }}" @endif
+-                        data-src="{{ asset('/themes/velocity/assets/images/seasons.webp') }}" alt="" />
+-                </a>
+-
+-                <div style="height: 10px;"></div>
+-
+-                <a @if (isset($three)) href="{{ $three }}" @endif aria-label="Advertisement">
+-                    <img
+-                        class="offers-ct-bottom {{ $isLazyLoad ? 'lazyload' : '' }}"
+-                        @if (! $isLazyLoad) src="{{ asset('/themes/velocity/assets/images/deals.webp') }}" @endif
+-                        data-src="{{ asset('/themes/velocity/assets/images/deals.webp') }}" alt="" />
+-                </a>
+-            </div>
++            <div style="height: 10px;"></div>
+ 
+-            <div class="col-lg-4 col-12 advertisement-container-block no-padding">
+-                <a @if (isset($four)) href="{{ $four }}" @endif aria-label="Advertisement">
+-                    <img
+-                        class="{{ $isLazyLoad ? 'lazyload' : '' }}"
+-                        @if (! $isLazyLoad) src="{{ asset('/themes/velocity/assets/images/kids.webp') }}" @endif
+-                        data-src="{{ asset('/themes/velocity/assets/images/kids.webp') }}" alt="" />
++            @if (isset($advertisementFour[2]))
++                <a @if (isset($three)) href="{{ $three }}" @endif
++                    class="row col-12 remove-padding-margin" aria-label="Advertisement">
++                    <img class="offers-ct-bottom {{ $isLazyLoad ? 'lazyload' : '' }}"
++                        @if (!$isLazyLoad) src="{{ Storage::url($advertisementFour[2]) }}" @endif
++                        data-src="{{ Storage::url($advertisementFour[2]) }}" alt="" />
+                 </a>
+-            </div>
++            @endif
+         </div>
++    @endif
++@endif --}}
++
++@if (!$isRendered)
++    <div class="col-lg-3 col-12 advertisement-container-block offers-ct-panel">
++        <a @if (isset($two)) href="{{ $two }}" @endif aria-label="Advertisement">
++            <img class="offers-ct-top {{ $isLazyLoad ? 'lazyload' : '' }}"
++                @if (!$isLazyLoad) src="{{ asset('/themes/velocity/assets/images/olasnog_tshirts.png') }}" @endif
++                data-src="{{ asset('/themes/velocity/assets/images/olasnog_tshirts.png') }}" alt="" />
++        </a>
++
++        <a @if (isset($three)) href="{{ $three }}" @endif aria-label="Advertisement">
++            <img class="offers-ct-bottom {{ $isLazyLoad ? 'lazyload' : '' }}"
++                @if (!$isLazyLoad) src="{{ asset('/themes/velocity/assets/images/olasnog_acessorios.png') }}" @endif
++                data-src="{{ asset('/themes/velocity/assets/images/olasnog_acessorios.png') }}" alt="" />
++        </a>
+     </div>
+-@endif
+\ No newline at end of file
++@endif
+diff --git a/packages/Webkul/Velocity/src/Resources/views/shop/home/index.blade.php b/packages/Webkul/Velocity/src/Resources/views/shop/home/index.blade.php
+index d36523a..88a03fa 100644
+--- a/packages/Webkul/Velocity/src/Resources/views/shop/home/index.blade.php
++++ b/packages/Webkul/Velocity/src/Resources/views/shop/home/index.blade.php
+@@ -19,7 +19,7 @@
+ @endphp
+ 
+ @section('page_title')
+-    {{ isset($metaTitle) ? $metaTitle : "" }}
++    {{ isset($metaTitle) ? $metaTitle : '' }}
+ @endsection
+ 
+ @section('head')
+@@ -39,41 +39,50 @@
+ @endsection
+ 
+ @push('css')
+-    @if (! empty($sliderData))
++    @if (!empty($sliderData))
+         <link rel="preload" as="image" href="{{ Storage::url($sliderData[0]['path']) }}">
+     @else
+         <link rel="preload" as="image" href="{{ asset('/themes/velocity/assets/images/banner.webp') }}">
+     @endif
+ 
+     <style type="text/css">
+-        .product-price span:first-child, .product-price span:last-child {
++        .product-price span:first-child,
++        .product-price span:last-child {
+             font-size: 18px;
+             font-weight: 600;
+         }
+     </style>
+ @endpush
+ 
+-@section('content-wrapper')
++{{-- @section('content-wrapper')
+     @include('shop::home.slider')
+-@endsection
++@endsection --}}
+ 
+ @section('full-content-wrapper')
+-
+     <div class="full-content-wrapper">
+         {!! view_render_event('bagisto.shop.home.content.before') !!}
+ 
+-            @if ($velocityMetaData)
++        {{-- @if ($velocityMetaData)
+                 {!! DbView::make($velocityMetaData)->field('home_page_content')->render() !!}
+-            @else
+-                @include('shop::home.advertisements.advertisement-four')
+-                @include('shop::home.featured-products')
+-                @include('shop::home.advertisements.advertisement-three')
+-                @include('shop::home.new-products')
+-                @include('shop::home.advertisements.advertisement-two')
+-            @endif
++            @else --}}
++        <div class="container-fluid advertisement-four-container">
++            <div class="row">
++                <categories-home main-sidebar=false id="categories-home" url="{{ url()->to('/') }}"
++                    category-count="{{ $velocityMetaData ? $velocityMetaData->sidebar_category_count : 10 }}"
++                    add-class="col-lg-3 col-12 category-list-container no-padding">
++                </categories-home>
++                {{-- <div class="row no-margin col-lg-9 col-12 advertisement-container-block no-padding"> --}}
++                    @include('shop::home.slider')
++                    @include('shop::home.advertisements.advertisement-four')
++                {{-- </div> --}}
++            </div>
++        </div>
++        @include('shop::home.featured-products')
++        @include('shop::home.advertisements.advertisement-three')
++        @include('shop::home.new-products')
++        {{-- @include('shop::home.advertisements.advertisement-two') --}}
++        {{-- @endif --}}
+ 
+         {{ view_render_event('bagisto.shop.home.content.after') }}
+     </div>
+-
+ @endsection
+-
+diff --git a/packages/Webkul/Velocity/src/Resources/views/shop/home/slider.blade.php b/packages/Webkul/Velocity/src/Resources/views/shop/home/slider.blade.php
+index a58a497..0709d37 100644
+--- a/packages/Webkul/Velocity/src/Resources/views/shop/home/slider.blade.php
++++ b/packages/Webkul/Velocity/src/Resources/views/shop/home/slider.blade.php
+@@ -1,20 +1,18 @@
+-@if (
+-    $velocityMetaData
+-    && $velocityMetaData->slider
+-)
+-    <div class="slider-container">
+-        <slider-component
+-            direction="{{ core()->getCurrentLocale()->direction }}"
+-            default-banner="{{ asset('/themes/velocity/assets/images/banner.webp') }}"
+-            :banners="{{ json_encode($sliderData) }}">
++@if ($velocityMetaData && $velocityMetaData->slider)
++        <div class="col-lg-6 col-12 slider-container">
++            <slider-component direction="{{ core()->getCurrentLocale()->direction }}"
++                default-banner="{{ asset('/themes/velocity/assets/images/banner.webp') }}"
++                :banners="{{ json_encode($sliderData) }}">
+ 
+-            {{-- this is default content if js is not loaded --}}
+-            @if(! empty($sliderData))
+-                <img class="col-12 no-padding banner-icon" src="{{ Storage::url($sliderData[0]['path']) }}" alt=""/>
+-            @else
+-                <img class="col-12 no-padding banner-icon" src="{{ asset('/themes/velocity/assets/images/banner.webp') }}" alt=""/>
+-            @endif
++                {{-- this is default content if js is not loaded --}}
++                @if (!empty($sliderData))
++                    <img class="col-12 no-padding banner-icon" src="{{ Storage::url($sliderData[0]['path']) }}"
++                        alt="" />
++                @else
++                    <img class="col-12 no-padding banner-icon"
++                        src="{{ asset('/themes/velocity/assets/images/banner.webp') }}" alt="" />
++                @endif
+ 
+-        </slider-component>
+-    </div>
++            </slider-component>
++        </div>
+ @endif
+diff --git a/packages/Webkul/Velocity/src/Resources/views/shop/layouts/header/index.blade.php b/packages/Webkul/Velocity/src/Resources/views/shop/layouts/header/index.blade.php
+index f211858..cccf41f 100644
+--- a/packages/Webkul/Velocity/src/Resources/views/shop/layouts/header/index.blade.php
++++ b/packages/Webkul/Velocity/src/Resources/views/shop/layouts/header/index.blade.php
+@@ -1,16 +1,17 @@
+ <header class="sticky-header">
+     <div class="row remove-padding-margin velocity-divide-page">
+         <a class="left navbar-brand" href="{{ route('shop.home.index') }}" aria-label="Logo">
+-            <img class="logo" src="{{ core()->getCurrentChannel()->logo_url ?? asset('themes/velocity/assets/images/logo-text.png') }}" alt="" />
++            <h1 class="logo">Olasnog</h1>
++            {{-- <img class="logo" src="{{ core()->getCurrentChannel()->logo_url ?? asset('themes/velocity/assets/images/logo-text.png') }}" alt="" /> --}}
+         </a>
+ 
+         <div class="right searchbar">
+             <div class="row">
+-                <div class="col-lg-5 col-md-12">
++                <div class="col-lg-7 col-md-12">
+                     @include('velocity::shop.layouts.particals.search-bar')
+                 </div>
+ 
+-                <div class="col-lg-7 col-md-12 vc-full-screen">
++                <div class="col-lg-5 col-md-12 vc-full-screen">
+                     <div class="left-wrapper">
+ 
+                         {!! view_render_event('bagisto.shop.layout.header.wishlist.before') !!}
+diff --git a/packages/Webkul/Velocity/src/Resources/views/shop/layouts/header/mobile.blade.php b/packages/Webkul/Velocity/src/Resources/views/shop/layouts/header/mobile.blade.php
+index d647a28..7d91822 100644
+--- a/packages/Webkul/Velocity/src/Resources/views/shop/layouts/header/mobile.blade.php
++++ b/packages/Webkul/Velocity/src/Resources/views/shop/layouts/header/mobile.blade.php
+@@ -3,18 +3,15 @@
+     $cartItemsCount = $cart ? $cart->items->count() : trans('shop::app.minicart.zero');
+ @endphp
+ 
+-<mobile-header
+-    is-customer="{{ auth()->guard('customer')->check() ? 'true' : 'false' }}"
+-    heading= "{{ __('velocity::app.menu-navbar.text-category') }}"
++<mobile-header is-customer="{{ auth()->guard('customer')->check()? 'true': 'false' }}"
++    heading="{{ __('velocity::app.menu-navbar.text-category') }}"
+     :header-content="{{ json_encode(app('Webkul\Velocity\Repositories\ContentRepository')->getAllContents()) }}"
+     category-count="{{ $velocityMetaData ? $velocityMetaData->sidebar_category_count : 10 }}"
+-    cart-items-count="{{ $cartItemsCount }}"
+-    cart-route="{{ route('shop.checkout.cart.index') }}"
++    cart-items-count="{{ $cartItemsCount }}" cart-route="{{ route('shop.checkout.cart.index') }}"
+     :locale="{{ json_encode(core()->getCurrentLocale()) }}"
+     :all-locales="{{ json_encode(core()->getCurrentChannel()->locales()->orderBy('name')->get()) }}"
+     :currency="{{ json_encode(core()->getCurrentCurrency()) }}"
+-    :all-currencies="{{ json_encode(core()->getCurrentChannel()->currencies) }}"
+->
++    :all-currencies="{{ json_encode(core()->getCurrentChannel()->currencies) }}">
+ 
+     {{-- this is default content if js is not loaded --}}
+     <div class="row">
+@@ -24,7 +21,8 @@
+             </div>
+ 
+             <a class="left" href="{{ route('shop.home.index') }}" aria-label="Logo">
+-                <img class="logo" src="{{ core()->getCurrentChannel()->logo_url ?? asset('themes/velocity/assets/images/logo-text.png') }}" alt="" />
++                <h1 class="logo">Olasnog</h1>
++                {{-- <img class="logo" src="{{ core()->getCurrentChannel()->logo_url ?? asset('themes/velocity/assets/images/logo-text.png') }}" alt="" /> --}}
+             </a>
+         </div>
+ 
+@@ -123,18 +121,14 @@
+                     @method('DELETE')
+                 </form>
+ 
+-                <a
+-                    class="unset"
+-                    href="{{ route('customer.session.destroy') }}"
++                <a class="unset" href="{{ route('customer.session.destroy') }}"
+                     onclick="event.preventDefault(); document.getElementById('customerLogout').submit();">
+                     {{ __('shop::app.header.logout') }}
+                 </a>
+             @endauth
+ 
+             @guest('customer')
+-                <a
+-                    class="unset"
+-                    href="{{ route('customer.session.create') }}">
++                <a class="unset" href="{{ route('customer.session.create') }}">
+                     <span>{{ __('shop::app.customer.login-form.title') }}</span>
+                 </a>
+             @endguest
+@@ -142,9 +136,7 @@
+ 
+         <li>
+             @guest('customer')
+-                <a
+-                    class="unset"
+-                    href="{{ route('customer.register.index') }}">
++                <a class="unset" href="{{ route('customer.register.index') }}">
+                     <span>{{ __('shop::app.header.sign-up') }}</span>
+                 </a>
+             @endguest
+@@ -153,11 +145,12 @@
+ 
+     <template v-slot:logo>
+         <a class="left" href="{{ route('shop.home.index') }}" aria-label="Logo">
+-            <img class="logo" src="{{ core()->getCurrentChannel()->logo_url ?? asset('themes/velocity/assets/images/logo-text.png') }}" alt="" />
++            <h1 class="logo">Olasnog</h1>
++            {{-- <img class="logo" src="{{ core()->getCurrentChannel()->logo_url ?? asset('themes/velocity/assets/images/logo-text.png') }}" alt="" /> --}}
+         </a>
+     </template>
+ 
+-    
++
+ 
+     <template v-slot:search-bar>
+         <div class="row">
+@@ -167,4 +160,4 @@
+         </div>
+     </template>
+ 
+-</mobile-header>
+\ No newline at end of file
++</mobile-header>
+diff --git a/packages/Webkul/Velocity/src/Resources/views/shop/layouts/master.blade.php b/packages/Webkul/Velocity/src/Resources/views/shop/layouts/master.blade.php
+index f117b95..e3dfeef 100644
+--- a/packages/Webkul/Velocity/src/Resources/views/shop/layouts/master.blade.php
++++ b/packages/Webkul/Velocity/src/Resources/views/shop/layouts/master.blade.php
+@@ -28,6 +28,10 @@
+             <link rel="icon" sizes="16x16" href="{{ asset('/themes/velocity/assets/images/static/v-icon.png') }}" />
+         @endif
+ 
++        <link rel="preconnect" href="https://fonts.googleapis.com">
++        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
++        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
++
+         {{-- all styles --}}
+         @include('shop::layouts.styles')
+     </head>
+@@ -74,7 +78,7 @@
+                                     id="sidebar-level-0"
+                                     url="{{ url()->to('/') }}"
+                                     category-count="{{ $velocityMetaData ? $velocityMetaData->sidebar_category_count : 10 }}"
+-                                    add-class="category-list-container pt10">
++                                    add-class="category-list-container category-list-container-navbar nav-bar pt10">
+                                 </sidebar-component>
+ 
+                                 <div class="col-12 no-padding content" id="home-right-bar-container">
+@@ -103,7 +107,7 @@
+             {{-- overlay loader --}}
+             <velocity-overlay-loader></velocity-overlay-loader>
+ 
+-            <go-top bg-color="#26A37C"></go-top>
++            <go-top bg-color="#4D7EA8"></go-top>
+         </div>
+ 
+         {{-- footer --}}
