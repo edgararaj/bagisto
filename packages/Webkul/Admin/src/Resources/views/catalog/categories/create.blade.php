@@ -56,7 +56,7 @@
 
                             <div class="control-group" :class="[errors.has('position') ? 'has-error' : '']">
                                 <label for="position" class="required">{{ __('admin::app.catalog.categories.position') }}</label>
-                                <input type="text" v-validate="'required|numeric'" class="control" id="position" name="position" value="{{ old('position') }}" data-vv-as="&quot;{{ __('admin::app.catalog.categories.position') }}&quot;"/>
+                                <input type="text" v-validate="'required|numeric'" class="control" id="position" name="position" value="{{ old('position', 0) }}" data-vv-as="&quot;{{ __('admin::app.catalog.categories.position') }}&quot;"/>
                                 <span class="control-error" v-if="errors.has('position')">@{{ errors.first('position') }}</span>
                             </div>
 
