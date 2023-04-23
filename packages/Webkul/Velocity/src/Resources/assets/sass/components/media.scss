@@ -982,7 +982,7 @@
     }
 
     .advertisement-four-container {
-        min-height: 992px;
+        //min-height: 992px;
 
         .advertisement-container-block {
             min-height: 425px;
@@ -1035,7 +1035,7 @@
     }
 
     .advertisement-four-container {
-        min-height: 992px;
+        //min-height: 992px;
 
         .advertisement-container-block {
             min-height: 425px;
@@ -1056,10 +1056,21 @@
     }
 }
 
+.ad-div2 {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
 @media only screen and (max-width: 992px) {
-    .advertisement-four-container {
-        .offers-ct-panel {
-            display: none;
-        }
+    .category-list-container2
+    {
+        display: none;
+    }
+}
+
+@media only screen and (max-width: 576px) {
+    .ad-div2, .category-list-container2 {
+        display: none;
     }
 }

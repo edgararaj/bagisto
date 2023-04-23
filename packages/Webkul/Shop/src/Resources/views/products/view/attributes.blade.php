@@ -35,7 +35,7 @@
                         )
                             <td>
                                 <a href="{{ route('shop.product.file.download', [$product->product_id, $attribute['id']])}}">
-                                    <img src="{{ Storage::url($attribute['value']) }}" style="height: 20px; width: 20px;" alt=""/>
+                                    <img src="{{ Storage::url($attribute['value']) }}" style="height: 100%;" alt=""/>
                                 </a>
                             </td>
                         @else

@@ -62,19 +62,14 @@
     <div class="full-content-wrapper">
         {!! view_render_event('bagisto.shop.home.content.before') !!}
 
-        {{-- @if ($velocityMetaData)
-                {!! DbView::make($velocityMetaData)->field('home_page_content')->render() !!}
-            @else --}}
         <div class="container-fluid advertisement-four-container">
             <div class="row">
                 <categories-home main-sidebar=false id="categories-home" url="{{ url()->to('/') }}"
                     category-count="{{ $velocityMetaData ? $velocityMetaData->sidebar_category_count : 10 }}"
-                    add-class="col-lg-3 col-12 category-list-container no-padding">
+                    add-class="home col-lg-3 category-list-container2">
                 </categories-home>
-                {{-- <div class="row no-margin col-lg-9 col-12 advertisement-container-block no-padding"> --}}
-                    @include('shop::home.slider')
-                    @include('shop::home.advertisements.advertisement-four')
-                {{-- </div> --}}
+                @include('shop::home.slider')
+                @include('shop::home.advertisements.advertisement-four')
             </div>
         </div>
         @include('shop::home.featured-products')

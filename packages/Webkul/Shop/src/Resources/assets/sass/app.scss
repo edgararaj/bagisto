@@ -1114,7 +1114,7 @@ section.slider-block {
 
                         .dropdown-cart > .dropdown-header p {
                             display: inline;
-                            line-height: 25px;
+                            //line-height: 25px;
                         }
 
                         .dropdown-cart > .dropdown-header i {
@@ -1707,7 +1707,7 @@ section.slider-block {
         .page-info {
             float: left;
             color: $font-dark;
-            line-height: 45px;
+            //line-height: 45px;
 
             span {
                 display: none;
@@ -1789,7 +1789,7 @@ section.slider-block {
 
                 .page-info {
                     border-bottom: 1px solid $border-color;
-                    line-height: 15px;
+                    //line-height: 15px;
                     margin-top: 10px;
 
                     span {
@@ -2012,7 +2012,7 @@ section.product-detail {
                     font-size: 24px;
                     color: $font-dark;
                     margin-bottom: 15px;
-                    line-height: normal;
+                    //line-height: normal;
                 }
 
                 .product-price {
@@ -2169,7 +2169,7 @@ section.product-detail {
                                             height: 38px;
                                             width: 60px;
                                             text-align: center;
-                                            line-height: 38px;
+                                            //line-height: 38px;
                                         }
                                     }
                                 }
@@ -2335,7 +2335,7 @@ section.product-detail {
                                     float: left;
                                     border: 1px solid $border-color;
                                     border-radius: 3px;
-                                    line-height: 36px;
+                                    //line-height: 36px;
                                     text-align: center;
                                     cursor: pointer;
                                     padding: 0 10px;
@@ -2711,13 +2711,13 @@ section.cart {
                         height: 38px;
                         width: 60px;
                         text-align: center;
-                        line-height: 38px;
+                        //line-height: 38px;
                     }
                 }
 
                 .remove,
                 .towishlist {
-                    line-height: 35px;
+                    //line-height: 35px;
                     margin-right: 15px;
                 }
             }
@@ -2892,7 +2892,7 @@ section.cart {
                             .misc {
                                 display: flex;
                                 flex-wrap: wrap;
-                                line-height: 40px;
+                                //line-height: 40px;
                             }
                         }
                     }
@@ -3987,7 +3987,7 @@ ol.breadcrumb {
                     flex-direction: column;
 
                     .title {
-                        line-height: 20px;
+                        //line-height: 20px;
                     }
                 }
 
@@ -4115,7 +4115,7 @@ ol.breadcrumb {
         }
 
         .term-list {
-            line-height: 35px;
+            //line-height: 35px;
         }
     }
 }
@@ -4950,7 +4950,7 @@ body {
 
 @media only screen and (max-width: 372px) {
     .comparison-component > h1 {
-        line-height: 30px;
+        //line-height: 30px;
     }
 }
 

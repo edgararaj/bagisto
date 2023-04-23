@@ -473,7 +473,7 @@ header #search-form > *:focus {
     }
 
     .main-category {
-        padding: 11px 15px;
+        padding: 11px 15px 12px 15px;
         // border-top: 1px solid $border-common;
 
         .pl5 {
@@ -527,6 +527,7 @@ header #search-form > *:focus {
         z-index: 1;
         width: $sidebar-width;
         position: absolute;
+        line-height: normal;
     }
 
     .right {

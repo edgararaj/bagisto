@@ -99,7 +99,7 @@ body {
     font-weight: 400;
     color: $font-color;
     font-size: 12px;
-    line-height: 20px;
+    //line-height: 20px;
     width: 100%;
     background: $white-color;
     font-family: $font-family-pro;
@@ -478,7 +478,7 @@ header {
             height: 100%;
             font-size: 14px;
             padding: 0 10px;
-            line-height: 20px;
+            //line-height: 20px;
             letter-spacing: 0;
             border: 1px solid $theme-color;
             border-left: 1px solid $border-common;
@@ -556,7 +556,7 @@ header {
 
             #mini-cart {
                 padding: 0;
-                line-height: inherit;
+                //line-height: inherit;
 
                 .mini-cart-content {
                     font-size: 16px;
@@ -966,7 +966,7 @@ i.within-circle {
     height: 36px;
     padding: 6px 12px;
     font-size: 16px;
-    line-height: 1.42857143;
+    //line-height: 1.42857143;
     color: rgba(0, 0, 0, 0.83);
     background-color: #fff;
     background-image: none;
@@ -1155,13 +1155,13 @@ i.within-circle {
 }
 
 .category {
-    line-height: 2.0rem !important;
+    ////line-height: 2.0rem !important;
 }
 
 .sub-category {
     padding-left: 0 !important;
     padding-top: 0 !important;
-    line-height: 2.0rem !important;
+    //line-height: 2.0rem !important;
 
     i {
         margin-top: 8px !important;

@@ -1,15 +1,14 @@
 <template>
-    <nav :class="`sidebar home ${addClass ? addClass : ''}`" v-if="slicedCategories && slicedCategories.length > 0">
-        <button style="width: 100%" class="btn small-padding theme-btn">Categorias</button>
-        <ul type="none" style="margin-bottom: 0">
+    <nav :class="`${addClass ? addClass : ''}`" v-if="slicedCategories && slicedCategories.length > 0">
+        <button style="width: 100%" class="btn theme-btn">Categorias</button>
+        <ul class="border" type="none" style="margin-bottom: 0">
             <li :key="categoryIndex" :id="`category-${category.id}`" class="category-content cursor-pointer"
                 v-for="(category, categoryIndex) in slicedCategories">
+                <div class="category-icon">
+                    <img v-if="category.category_icon_url" :src="category.category_icon_url" height="100%" />
+                </div>
                 <a :href="`${$root.baseUrl}/${category.slug}`" :class="`category unset ${category.children.length > 0 ? 'fw6' : ''
                     }`">
-                    <div class="category-icon">
-                        <img v-if="category.category_icon_url" :src="category.category_icon_url" width="20" height="20" />
-                    </div>
-
                     <span class="category-title">{{ category['name'] }}</span>
 
                     <i class="rango-arrow-right pr15 float-right" v-if="
@@ -18,7 +17,6 @@
                     ">
                     </i>
                 </a>
-
             </li>
         </ul>
     </nav>

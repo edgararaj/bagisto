@@ -1,4 +1,9 @@
-<?php $selectedOption = old($attribute->code) ?: $product[$attribute->code] ?>
+<?php $selectedOption = old($attribute->code) ?: $product[$attribute->code];
+if ($attribute->code == "visible_individually" || $attribute->code == "status" || $attribute->code == "guest_checkout")
+{
+    $selectedOption = "checked";
+}
+?>
 
 <label class="switch">
     <input type="checkbox" class="control" id="{{ $attribute->code }}" name="{{ $attribute->code }}" data-vv-as="&quot;{{ $attribute->admin_name }}&quot;" {{ $selectedOption ? 'checked' : ''}} value="1">
