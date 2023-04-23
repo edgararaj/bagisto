@@ -12,7 +12,7 @@
         <div class="mini-cart-content">
             <i class="material-icons-outlined text-down-3">shopping_cart</i>
             <span class="badge" v-text="itemCount" v-if="itemCount != 0"></span>
-            <span class="fs18 fw6 cart-text" v-text="cartText"></span>
+            <span class="fw6 cart-text" v-text="cartText"></span>
         </div>
 
         <div class="down-arrow-container">

@@ -1713,7 +1713,7 @@
 .home {
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.09), 0 3px 2px rgba(0, 0, 0, 0.10) !important;
     .category-content {
-        padding: 5px;
+        //padding: 5px;
         // height: 40px;
         .category-title {
             font-size: 18px;
@@ -1735,8 +1735,8 @@
             top: -1px;
             // font-weight: 600;
             position: relative;
-            padding-left: 5px;
-            vertical-align: middle;
+            //padding-left: 5px;
+            //vertical-align: middle;
         }
 
         .rango-arrow-right {
@@ -1746,13 +1746,15 @@
 
         .category-icon {
             width: 25px;
-            height: 25px;
+            height: 20px;
+            padding-right: 5px;
+            //height: 25px;
             display: inline-block;
 
             img {
                 width: 100%;
                 height: 100%;
-                // vertical-align: text-top;
+                vertical-align: text-top;
             }
         }
     }

@@ -85,6 +85,16 @@ class CategoryTableSeeder extends Seeder
                 'meta_keywords'    => '',
                 'category_id'      => '1',
                 'locale'           => 'tr',
+            ],
+            [
+                'name'             => 'Raiz',
+                'slug'             => 'raiz',
+                'description'      => 'Raiz',
+                'meta_title'       => '',
+                'meta_description' => '',
+                'meta_keywords'    => '',
+                'category_id'      => '1',
+                'locale'           => 'pt_BR',
             ]
         ]);
     }
