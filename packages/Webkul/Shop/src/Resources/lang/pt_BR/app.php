@@ -116,13 +116,13 @@ return [
 
         'signup-form' => [
             'page-title'                    => 'Cliente - Formulário de Cadastro',
-            'title'                         => 'Cadastrar',
+            'title'                         => 'Registar',
             'firstname'                     => 'Nome',
             'lastname'                      => 'Sobrenome',
             'email'                         => 'Email',
             'password'                      => 'Senha',
             'confirm_pass'                  => 'Confirmar Senha',
-            'button_title'                  => 'Cadastrar',
+            'button_title'                  => 'Registar',
             'agree'                         => 'Concordo',
             'terms'                         => 'Termos',
             'conditions'                    => 'Condições',
@@ -137,12 +137,12 @@ return [
             'verified'                      => 'Sua Conta Foi Verificada, Tente Entrar Agora',
             'verify-failed'                 => 'Não podemos verificar sua conta de e-mail.',
             'dont-have-account'             => 'Você não tem conta conosco',
-            'customer-registration'         => 'Cliente Cadastrado com Sucesso',
+            'customer-registration'         => 'Cliente Registado com Sucesso',
         ],
 
         'login-text' => [
             'no_account' => 'Não tem conta',
-            'title'      => 'Cadastrar',
+            'title'      => 'Registar',
         ],
 
         'login-form' => [
@@ -150,14 +150,14 @@ return [
             'title'               => 'Entrar',
             'email'               => 'Email',
             'password'            => 'Senha',
-            'forgot_pass'         => 'Esqueceu sua Senha?',
+            'forgot_pass'         => 'Esqueceu-se da senha?',
             'button_title'        => 'Entrar',
             'remember'            => 'Lembrar de mim',
             'footer'              => '© Copyright :year Webkul Software, Todos os direitos reservados',
             'invalid-creds'       => 'Por favor, verifique suas credenciais e tente novamente',
             'verify-first'        => 'Verifique seu e-mail primeiro',
             'resend-verification' => 'Reenviar email de verificação novamente',
-            'show-password'       => 'show-password',
+            'show-password'       => 'Mostrar Senha',
         ],
 
         'forgot-password' => [
@@ -718,10 +718,10 @@ return [
 
             'registration' => [
                 'subject'               => 'Novo Cliente',
-                'customer-registration' => 'Cliente cadastrado com Sucesso',
+                'customer-registration' => 'Cliente registado com Sucesso',
                 'dear'                  => 'Caro :customer_name',
                 'dear-admin'            => 'Caro :admin_name',
-                'greeting'              => 'Bem vindo e obrigado por se cadastrar conosco!',
+                'greeting'              => 'Bem vindo e obrigado por se registar conosco!',
                 'greeting-admin'        => 'Você tem um novo registro de cliente.',
                 'summary'               => 'Sua conta foi criada com sucesso e agora você pode entrar utilizando seu endereço de email e senha. Ao fazer login, você poderá acessar outros serviços, incluindo a revisão de pedidos anteriores, listas de desejos e a edição das informações da sua conta..',
                 'thanks'                => 'Obrigado!',

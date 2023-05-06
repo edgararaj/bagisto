@@ -216,7 +216,7 @@ return [
             'actions' => 'Ações',
         ],
         'login-form' => [
-            'sign-up' => 'Cadastrar',
+            'sign-up' => 'Registar',
             'new-customer' => 'Novo cliente',
             'customer-login' => 'Login do cliente',
             'registered-user' => 'Usuário Registrado',
@@ -224,13 +224,13 @@ return [
             'form-login-text' => 'Se você possui uma conta, entre com seu endereço de e-mail.',
         ],
         'signup-form' => [
-            'login' => 'Conecte-se',
+            'login' => 'Login',
             'become-user' => 'Torne-se usuário',
             'user-registration' => 'Registro de Usuário',
             'form-signup-text' => 'Se você é novo em nossa loja, desejamos tê-lo como membro.',
         ],
         'forget-password' => [
-            'login' => 'Conecte-se',
+            'login' => 'Login',
             'forgot-password' => 'Esqueceu a senha',
             'recover-password' => 'Recuperar Senha',
             'recover-password-text' => 'Se você esqueceu sua senha, recupere-a digitando seu endereço de e-mail.',
@@ -310,8 +310,8 @@ return [
 
     'responsive' => [
         'header' => [
-            'greeting' => 'Bem-vindo, :Customer !',
-            'greeting-for-guest' => 'Bem vindo convidado'
+            'greeting' => 'Bem-vindo, :Customer',
+            'greeting-for-guest' => 'Bem-vindo, Convidado'
         ]
     ],
 ]
