@@ -28,6 +28,10 @@
             <link rel="icon" sizes="16x16" href="{{ asset('/themes/velocity/assets/images/static/v-icon.png') }}" />
         @endif
 
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
         {{-- all styles --}}
         @include('shop::layouts.styles')
     </head>
@@ -104,7 +108,7 @@
             {{-- overlay loader --}}
             <velocity-overlay-loader></velocity-overlay-loader>
 
-            <go-top bg-color="#26A37C"></go-top>
+            <go-top bg-color="$link-color"></go-top>
         </div>
 
         {{-- footer --}}
