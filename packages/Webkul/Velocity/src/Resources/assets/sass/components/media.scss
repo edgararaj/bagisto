@@ -187,9 +187,15 @@
                 .right-vc-header {
                     position: relative;
                     z-index: 2;
-                    display: table;
+                    display: flex;
+                    align-items: center;
+                    justify-content: right;
                     text-align: right;
                     height: $header-height;
+
+                    .cursor-pointer{
+                        padding-right: 1rem;
+                    }
 
                     > a {
                         display: table-cell;
