@@ -68,7 +68,7 @@
 
                             {{-- desktop header --}}
 
-                            @include('shop::layouts.header.desktop')
+                            <!-- @include('shop::layouts.header.desktop') -->
 
                         </header>
 

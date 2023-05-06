@@ -1,4 +1,4 @@
-<header class="sticky-header">
+<header class="sticky-header vc-header">
     <div class="row remove-padding-margin velocity-divide-page">
         <a class="left navbar-brand" href="{{ route('shop.home.index') }}" aria-label="Logo">
             <h1 class="logo">Olasnog</h1>
