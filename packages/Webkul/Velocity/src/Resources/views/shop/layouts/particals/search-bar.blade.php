@@ -1,5 +1,6 @@
 <div class="input-group">
     <form
+        class="full-width"
         method="GET"
         role="search"
         id="search-form"
