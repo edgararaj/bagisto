@@ -67,9 +67,15 @@
             padding: 60px 130px;
             background: #30383F;
 
+            a {
+                text-decoration: none;
+            }
+
             .logo {
                 width: auto;
                 max-height: 40px;
+                font-family: Oruguitas, sans-serif;
+                color: rgba(255,255,255,0.83);
             }
 
             .footer-ct-content {

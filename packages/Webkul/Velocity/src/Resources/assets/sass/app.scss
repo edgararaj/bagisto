@@ -28,6 +28,14 @@
 /* static */
 @import 'static/material-icons';
 
+@font-face {
+    font-family: 'Oruguitas';
+    src: url("../fonts/Oruguitas.woff2") format("woff2");
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
 /* starting */
 * {
     margin: 0;
@@ -419,6 +427,8 @@ header {
     .logo {
         height: 46px;
         padding-left: 10px;
+        font-family: Oruguitas, sans-serif;
+        color: black;
     }
 
     #search-form {
