@@ -23,7 +23,7 @@
                 <i class="rango-toggle hamburger"></i>
             </div>
 
-            <a class="left" href="{{ route('shop.home.index') }}" aria-label="Logo">
+            <a class="left text-decoration-none" href="{{ route('shop.home.index') }}" aria-label="Logo">
                 <h1 class="logo">Olasnog</h1>
                 <!-- <img class="logo" src="{{ core()->getCurrentChannel()->logo_url ?? asset('themes/velocity/assets/images/logo-text.png') }}" alt="" /> -->
             </a>
@@ -153,7 +153,7 @@
     </template>
 
     <template v-slot:logo>
-        <a class="left" href="{{ route('shop.home.index') }}" aria-label="Logo">
+        <a class="left text-decoration-none" href="{{ route('shop.home.index') }}" aria-label="Logo">
             <h1 class="logo">Olasnog</h1>
             <!-- <img class="logo" src="{{ core()->getCurrentChannel()->logo_url ?? asset('themes/velocity/assets/images/logo-text.png') }}" alt="" /> -->
         </a>
