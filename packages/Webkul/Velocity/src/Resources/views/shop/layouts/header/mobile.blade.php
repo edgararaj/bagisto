@@ -24,7 +24,8 @@
             </div>
 
             <a class="left" href="{{ route('shop.home.index') }}" aria-label="Logo">
-                <img class="logo" src="{{ core()->getCurrentChannel()->logo_url ?? asset('themes/velocity/assets/images/logo-text.png') }}" alt="" />
+                <h1 class="logo">Olasnog</h1>
+                <!-- <img class="logo" src="{{ core()->getCurrentChannel()->logo_url ?? asset('themes/velocity/assets/images/logo-text.png') }}" alt="" /> -->
             </a>
         </div>
 
@@ -153,7 +154,8 @@
 
     <template v-slot:logo>
         <a class="left" href="{{ route('shop.home.index') }}" aria-label="Logo">
-            <img class="logo" src="{{ core()->getCurrentChannel()->logo_url ?? asset('themes/velocity/assets/images/logo-text.png') }}" alt="" />
+            <h1 class="logo">Olasnog</h1>
+            <!-- <img class="logo" src="{{ core()->getCurrentChannel()->logo_url ?? asset('themes/velocity/assets/images/logo-text.png') }}" alt="" /> -->
         </a>
     </template>
 
