@@ -2,7 +2,7 @@
     $velocityMetaData
     && $velocityMetaData->slider
 )
-    <div class="slider-container">
+    <div class="row">
         <slider-component
             direction="{{ core()->getCurrentLocale()->direction }}"
             default-banner="{{ asset('/themes/velocity/assets/images/banner.webp') }}"
@@ -16,5 +16,5 @@
             @endif
 
         </slider-component>
-    </div>
+    <div>
 @endif

@@ -94,6 +94,7 @@ Vue.component('vnode-injector', {
     }
 });
 Vue.component('go-top', () => import('@inotom/vue-go-top'));
+Vue.component('categories-home', () => import('@components/categories-home'));
 
 /**
  * Start from here.
