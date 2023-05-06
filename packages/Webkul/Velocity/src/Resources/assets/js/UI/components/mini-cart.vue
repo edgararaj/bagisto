@@ -6,7 +6,7 @@
                 <div class="badge-container">
                     <span class="badge" v-text="cartCount" v-if="cartCount != 0"></span>
                 </div>
-                <span class="fs18 fw6 cart-text" v-text="cartText"></span>
+                <span class="fw6 cart-text" v-text="cartText"></span>
             </div>
 
             <div class="down-arrow-container">
