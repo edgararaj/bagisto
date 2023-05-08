@@ -1,6 +1,6 @@
 <?php
 
 return [
-    'enter-attribute'  => 'Enter :attribute',
-    'select-attribute' => 'Select :attribute',
+    'enter-attribute'  => 'Introduza :attribute',
+    'select-attribute' => 'Selecione o :attribute',
 ];

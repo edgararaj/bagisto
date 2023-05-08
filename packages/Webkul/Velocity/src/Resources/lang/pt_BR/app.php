@@ -147,7 +147,7 @@ return [
             'mass-delete-success' => 'Menu de categorias selecionadas excluído com sucesso.',
         ],
         'general' => [
-            'locale_logo' => 'Logotipo da liguagem',
+            'locale_logo' => 'Logotipo da linguagem',
         ],
     ],
 
@@ -253,7 +253,7 @@ return [
         'reviewed' => 'Revisada',
         'reviews' => 'Avaliações',
         'review-by' => 'Revisão por',
-        'quick-view' => 'Olhada rápida',
+        'quick-view' => 'Vista rápida',
         'submit-review' => 'Enviar revisão',
         'not-available' => 'Não disponível',
         'ratings' => ':total Ratings Avaliações',

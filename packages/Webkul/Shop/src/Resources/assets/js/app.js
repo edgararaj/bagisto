@@ -9,6 +9,7 @@ import nl from 'vee-validate/dist/locale/nl';
 import tr from 'vee-validate/dist/locale/tr';
 import hi_IN from 'vee-validate/dist/locale/hi';
 import zh_CN from 'vee-validate/dist/locale/zh_CN';
+import pt_PT from 'vee-validate/dist/locale/pt_PT';
 import axios from 'axios';
 import VueSlider from 'vue-slider-component';
 import accounting from 'accounting';
@@ -33,7 +34,8 @@ Vue.use(VeeValidate, {
 		nl: nl,
 		tr: tr,
         hi_IN: hi_IN,
-        zh_CN: zh_CN
+        zh_CN: zh_CN,
+        pt_BR: pt_PT
     },
     events: 'input|change|blur',
 });
