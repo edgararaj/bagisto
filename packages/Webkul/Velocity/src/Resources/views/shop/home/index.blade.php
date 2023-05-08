@@ -62,12 +62,13 @@
         {!! view_render_event('bagisto.shop.home.content.before') !!}
 
             <!-- @include('shop::home.slider') -->
-            @include('shop::home.advertisements.advertisement-three-custom')
+            <!-- @include('shop::home.advertisements.advertisement-three-custom')
             @include('shop::home.featured-products')
             @include('shop::home.advertisements.advertisement-four')
-            @include('shop::home.new-products')
-            @include('shop::home.advertisements.advertisement-two')
-            <!-- @if ($velocityMetaData)
+            @include('shop::home.new-products') -->
+            <!-- @include('shop::home.advertisements.advertisement-two') -->
+            @include('shop::home.advertisements.advertisement-three-custom')
+            @if ($velocityMetaData)
                 {!! Blade::render($velocityMetaData->home_page_content) !!}
             @else
                 @include('shop::home.advertisements.advertisement-four')
@@ -75,7 +76,7 @@
                 @include('shop::home.advertisements.advertisement-three')
                 @include('shop::home.new-products')
                 @include('shop::home.advertisements.advertisement-two')
-            @endif -->
+            @endif
 
         {{ view_render_event('bagisto.shop.home.content.after') }}
     </div>
