@@ -192,7 +192,7 @@
                                 {!! view_render_event('bagisto.shop.checkout.cart.controls.after', ['cart' => $cart]) !!}
                                 <div class="misc">
                                     <a
-                                        class="theme-btn light fs16 text-center"
+                                        class="theme-btn light text-center"
                                         href="{{ route('shop.home.index') }}">
                                         {{ __('shop::app.checkout.cart.continue-shopping') }}
                                     </a>
