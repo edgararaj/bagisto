@@ -148,7 +148,7 @@
 
     .main-content-wrapper {
         z-index: 100;
-        margin-bottom: 25px;
+        // margin-bottom: 25px;
         background-color: $white-color;
 
         .vc-header {
@@ -324,7 +324,12 @@
     }
 
     .advertisement-three-container {
+        .row {
+            padding: 0 !important;
+        }
+
         .left-container {
+            display: none;
             padding-right: 0px;
             padding-bottom: 10px;
         }
@@ -338,6 +343,7 @@
         }
 
         .second-panel {
+            display: none;
             padding-top: 10px;
         }
     }

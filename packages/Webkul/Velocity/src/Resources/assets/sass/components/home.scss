@@ -151,6 +151,7 @@ header #search-form > *:focus {
 }
 
 .advertisement-three-container {
+    margin-top: 0 !important; // because this ad is the topmost dont add margin
     img {
         height: 100%;
     }
