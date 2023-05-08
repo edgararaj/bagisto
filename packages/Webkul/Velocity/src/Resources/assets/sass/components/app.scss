@@ -1894,8 +1894,16 @@
                 background: $border-light;
             }
             a {
-                display: block;
-                padding: 7px 0 5px 15px;
+                display: flex;
+                align-items: center;
+                .category-icon img {
+                    height: 40px;
+                    padding: 5px;
+                }
+                span {
+                    display: block;
+                    padding: 7px 0 5px 15px;
+                }
             }
         }
     }

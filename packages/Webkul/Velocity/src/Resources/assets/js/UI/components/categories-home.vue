@@ -4,11 +4,11 @@
         <ul class="border" type="none" style="margin-bottom: 0">
             <li :key="categoryIndex" :id="`category-${category.id}`" class="category-content cursor-pointer"
                 v-for="(category, categoryIndex) in slicedCategories">
-                <div class="category-icon">
-                    <img v-if="category.category_icon_url" :src="category.category_icon_url" height="100%" />
-                </div>
                 <a :href="`${$root.baseUrl}/${category.slug}`" :class="`category unset ${category.children.length > 0 ? 'fw6' : ''
                     }`">
+                    <div class="category-icon">
+                        <img v-if="category.category_icon_url" :src="category.category_icon_url" height="100%" />
+                    </div>
                     <span class="category-title">{{ category['name'] }}</span>
 
                     <i class="rango-arrow-right pr15 float-right" v-if="
