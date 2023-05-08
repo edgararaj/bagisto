@@ -4,9 +4,10 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
         <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500" rel="stylesheet" type="text/css">
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet" type="text/css">
     </head>
 
-    <body style="font-family: montserrat, sans-serif;">
+    <body style="font-family: Inter, sans-serif;">
         <div style="max-width: 1000px; margin-left: auto; margin-right: auto;">
             <div style="text-align: center;">
                 {{ $header ?? '' }}
