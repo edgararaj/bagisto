@@ -1,5 +1,5 @@
 <template>
-        <div class="row">
+        <div class="row align-items-center">
             <div class="mobile-screen-header-col-1">
                 <div v-if="hamburger" class="nav-container scrollable">
                     <div class="wrapper" v-if="this.rootCategories">
