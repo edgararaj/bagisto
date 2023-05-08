@@ -19,7 +19,7 @@ return [
     ],
 
     'forget_password' => [
-        'reset_link_sent' => 'Enviamos por e-mail o link de redefinição de senha.',
+        'reset_link_sent' => 'Enviamos por e-mail o link de redefinição de Password.',
         'email_not_exist' => "Não conseguimos encontrar um usuário com esse endereço de e-mail",
     ],
 

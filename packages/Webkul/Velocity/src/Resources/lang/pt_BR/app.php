@@ -221,7 +221,7 @@ return [
             'customer-login' => 'Login do cliente',
             'registered-user' => 'Usuário Registrado',
             'your-email-address' => 'Seu endereço de email',
-            'form-login-text' => 'Se você possui uma conta, entre com seu endereço de e-mail.',
+            'form-login-text' => 'Se possui uma conta, entre com o seu endereço de e-mail.',
         ],
         'signup-form' => [
             'login' => 'Login',
@@ -231,9 +231,9 @@ return [
         ],
         'forget-password' => [
             'login' => 'Login',
-            'forgot-password' => 'Esqueceu a senha',
-            'recover-password' => 'Recuperar Senha',
-            'recover-password-text' => 'Se você esqueceu sua senha, recupere-a digitando seu endereço de e-mail.',
+            'forgot-password' => 'Esqueceu-se da Password',
+            'recover-password' => 'Recuperar Password',
+            'recover-password-text' => 'Se se esqueceu da password, recupere-a introduzindo o seu endereço de e-mail.',
         ],
         'wishlist' => [
             'remove-all-success' => 'Todos os itens da sua lista de desejos foram removidos',
@@ -284,11 +284,11 @@ return [
             'orders' => 'Encomendas',
             'reviews' => 'Avaliações',
             'addresses' => 'Endereços',
-            'new-password' => 'Nova senha',
+            'new-password' => 'Nova Password',
             'top-brands' => 'Marcas de topo',
             'downloadables' => 'Produtos para download',
-            'confirm-new-password' => 'Confirme a nova senha',
-            'enter-current-password' => 'Digite sua senha atual',
+            'confirm-new-password' => 'Confirme a nova password',
+            'enter-current-password' => 'Digite a sua password atual',
             'download' => 'Baixar',
             'no-file-available' => 'Nenhum arquivo disponível!',
 

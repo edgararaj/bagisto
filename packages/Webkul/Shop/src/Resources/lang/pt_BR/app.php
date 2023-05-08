@@ -120,8 +120,8 @@ return [
             'firstname'                     => 'Nome',
             'lastname'                      => 'Sobrenome',
             'email'                         => 'Email',
-            'password'                      => 'Senha',
-            'confirm_pass'                  => 'Confirmar Senha',
+            'password'                      => 'Password',
+            'confirm_pass'                  => 'Confirmar Password',
             'button_title'                  => 'Registar',
             'agree'                         => 'Concordo',
             'terms'                         => 'Termos',
@@ -149,31 +149,31 @@ return [
             'page-title'          => 'Cliente - Login',
             'title'               => 'Entrar',
             'email'               => 'Email',
-            'password'            => 'Senha',
-            'forgot_pass'         => 'Esqueceu-se da senha?',
+            'password'            => 'Password',
+            'forgot_pass'         => 'Esqueceu-se da password?',
             'button_title'        => 'Entrar',
             'remember'            => 'Lembrar de mim',
             'footer'              => '© Copyright :year Webkul Software, Todos os direitos reservados',
             'invalid-creds'       => 'Por favor, verifique suas credenciais e tente novamente',
             'verify-first'        => 'Verifique seu e-mail primeiro',
             'resend-verification' => 'Reenviar email de verificação novamente',
-            'show-password'       => 'Mostrar Senha',
+            'show-password'       => 'Mostrar Password',
         ],
 
         'forgot-password' => [
-            'title'      => 'Recuperar Senha',
+            'title'      => 'Recuperar Password',
             'email'      => 'Email',
             'submit'     => 'Enviar',
-            'page_title' => 'Esqueci minha Senha',
+            'page_title' => 'Esqueci-me da Password',
         ],
 
         'reset-password' => [
-            'title'            => 'Redefinir Senha',
+            'title'            => 'Redefinir Password',
             'email'            => 'Email registrado',
-            'password'         => 'Senha',
-            'confirm-password' => 'Confirmar Senha',
+            'password'         => 'Password',
+            'confirm-password' => 'Confirmar Password',
             'back-link-title'  => 'Voltar para Login',
-            'submit-btn-title' => 'Redefinir Senha',
+            'submit-btn-title' => 'Redefinir Password',
         ],
 
         'account' => [
@@ -194,7 +194,7 @@ return [
 
                 'edit-success' => 'Perfil Atualizado com Sucesso',
                 'edit-fail'    => 'Erro! O perfil não pode ser atualizado, por favor, tente novamente mais tarde',
-                'unmatch'      => 'A senha antiga não corresponde',
+                'unmatch'      => 'A password antiga não corresponde',
 
                 'fname'     => 'Nome',
                 'lname'     => 'Sobrenome',
@@ -205,9 +205,9 @@ return [
                 'dob'       => 'Data de Nascimento',
                 'phone'     => 'Telefone',
                 'email'     => 'Email',
-                'opassword' => 'Senha antiga',
-                'password'  => 'Senha',
-                'cpassword' => 'Confirmar Senha',
+                'opassword' => 'Password antiga',
+                'password'  => 'Password',
+                'cpassword' => 'Confirmar Password',
                 'submit'    => 'Atualizar Perfil',
 
                 'edit-profile' => [
@@ -690,18 +690,18 @@ return [
         ],
 
         'forget-password' => [
-            'subject'        => 'Recuperação de Senha',
+            'subject'        => 'Recuperação de Password',
             'dear'           => 'Caro :name',
-            'info'           => 'Você está recebendo este e-mail porque recebemos uma solicitação de redefinição de senha para sua conta',
-            'reset-password' => 'Redefinir Senha',
-            'final-summary'  => 'Se você não solicitou uma redefinição de senha, nenhuma ação adicional é necessária',
+            'info'           => 'Está a receber este e-mail porque recebemos uma solicitação de redefinição de password para a sua conta',
+            'reset-password' => 'Redefinir Password',
+            'final-summary'  => 'Se não solicitou uma redefinição de password, nenhuma ação adicional é necessária',
             'thanks'         => 'Obrigado!',
         ],
 
         'update-password' => [
-            'subject' => 'Senha atualizada',
+            'subject' => 'Password atualizada',
             'dear'    => 'Caro :name',
-            'info'    => 'Você está recebendo este e-mail porque atualizou sua senha.',
+            'info'    => 'Está a receber este e-mail porque atualizou a sua password.',
             'thanks'  => 'Obrigado!',
         ],
 
@@ -710,7 +710,7 @@ return [
                 'dear'           => 'Caro :customer_name',
                 'username-email' => 'Nome de usuário/Email',
                 'subject'        => 'Nova Conta',
-                'password'       => 'Senha',
+                'password'       => 'Password',
                 'summary'        => 'Sua conta foi criada.
                 Abaixo está suas informaços: ',
                 'thanks'         => 'Obrigado!',
@@ -723,7 +723,7 @@ return [
                 'dear-admin'            => 'Caro :admin_name',
                 'greeting'              => 'Bem vindo e obrigado por se registar conosco!',
                 'greeting-admin'        => 'Você tem um novo registro de cliente.',
-                'summary'               => 'Sua conta foi criada com sucesso e agora você pode entrar utilizando seu endereço de email e senha. Ao fazer login, você poderá acessar outros serviços, incluindo a revisão de pedidos anteriores, listas de desejos e a edição das informações da sua conta..',
+                'summary'               => 'A sua conta foi criada com sucesso, e agora pode entrar com o seu endereço de email e password. Ao fazer login, poderá acessar outros serviços, incluindo a revisão de pedidos anteriores, listas de desejos e a edição das informações da sua conta.',
                 'thanks'                => 'Obrigado!',
             ],
 
