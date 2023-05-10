@@ -727,7 +727,7 @@ return [
         'save-message'   => 'Configuração salvada com sucesso!',
         'yes'            => 'Sim',
         'no'             => 'Não',
-        'delete'         => 'Deletar',
+        'delete'         => 'Apagar',
         'enable-atleast-one-shipping' => 'Enable atleast one shipping method.',
         'enable-atleast-one-payment'  => 'Enable atleast one payment method.',
 

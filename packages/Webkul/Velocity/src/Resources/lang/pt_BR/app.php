@@ -58,7 +58,7 @@ return [
             'save-btn-title' => 'Salvar Conteúdo',
             'autocomplete' => '[Autocompletar]',
             'no-result-found' => 'Nenhum registo encontrado.',
-            'search-hint' => 'Busque produtos aqui...',
+            'search-hint' => 'Procure produtos aqui...',
             'mass-delete-success' => 'Conteúdo selecionado excluído com sucesso.',
             'tab' => [
                 'page' => 'Configuração da Página',
@@ -286,7 +286,7 @@ return [
             'addresses' => 'Endereços',
             'new-password' => 'Nova Password',
             'top-brands' => 'Marcas de topo',
-            'downloadables' => 'Produtos para download',
+            'downloadables' => 'Produtos para Download',
             'confirm-new-password' => 'Confirme a nova password',
             'enter-current-password' => 'Digite a sua password atual',
             'download' => 'Baixar',
