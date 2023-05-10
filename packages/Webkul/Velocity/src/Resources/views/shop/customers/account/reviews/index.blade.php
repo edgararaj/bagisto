@@ -79,7 +79,7 @@
                 {{ $reviews->links()  }}
             </div>
         @else
-            <div class="fs16">
+            <div>
                 {{ __('customer::app.reviews.empty') }}
             </div>
         @endif
