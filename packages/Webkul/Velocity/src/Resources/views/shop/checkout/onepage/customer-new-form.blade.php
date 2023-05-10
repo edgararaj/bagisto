@@ -266,7 +266,7 @@
         </div>
     @endauth
 @elseif (! empty($billing))
-    <!-- <div :class="`col-12 form-field ${errors.has('address-form.billing[company_name]') ? 'has-error' : ''}`">
+    <div :class="`col-12 form-field ${errors.has('address-form.billing[company_name]') ? 'has-error' : ''}`">
         <label for="billing[company_name]">
             {{ __('shop::app.checkout.onepage.company-name') }}
         </label>
@@ -285,7 +285,7 @@
             v-text="errors.first('address-form.billing[company_name]')"
             v-if="errors.has('address-form.billing[company_name]')">
         </span>
-    </div> -->
+    </div>
 
     <div :class="`col-12 form-field ${errors.has('address-form.billing[first_name]') ? 'has-error' : ''}`">
         <label for="billing[first_name]" class="mandatory">

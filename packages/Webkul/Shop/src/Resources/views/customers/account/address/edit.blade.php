@@ -163,9 +163,9 @@
 
                 {!! view_render_event('bagisto.shop.customers.account.address.edit_form_controls.create.after') !!}
 
-                @include ('shop::customers.account.address.country-state', ['countryCode' => old('country') ?? $address->country, 'stateCode' => old('state') ?? $address->state])
+                <!-- @include ('shop::customers.account.address.country-state', ['countryCode' => old('country') ?? $address->country, 'stateCode' => old('state') ?? $address->state])
 
-                {!! view_render_event('bagisto.shop.customers.account.address.edit_form_controls.country-state.after') !!}
+                {!! view_render_event('bagisto.shop.customers.account.address.edit_form_controls.country-state.after') !!} -->
 
                 <div class="control-group" :class="[errors.has('postcode') ? 'has-error' : '']">
                     <label for="postcode" class="{{ core()->isPostCodeRequired() ? 'required' : '' }}">{{ __('shop::app.customer.account.address.create.postcode') }}</label>
