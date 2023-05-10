@@ -15,7 +15,7 @@ return [
     'product-removed'  => 'Product Is No More Available As Removed By Admin',
 
     'reviews' => [
-        'empty' => 'Você não avaliou nenhum produto ainda',
+        'empty' => 'Não avaliou nenhum produto ainda',
     ],
 
     'forget_password' => [

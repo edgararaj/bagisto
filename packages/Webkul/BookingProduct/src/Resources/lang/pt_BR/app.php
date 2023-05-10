@@ -86,7 +86,7 @@ return [
         'products' => [
             'booking-information' => 'Booking Information',
             'location' => 'Localização',
-            'contact' => 'Contato',
+            'contact' => 'Contacto',
             'email' => 'O email',
             'slot-duration' => 'Duração do slot',
             'slot-duration-in-minutes' => ':minutes Minutos',

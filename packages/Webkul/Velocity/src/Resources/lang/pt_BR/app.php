@@ -55,7 +55,7 @@ return [
             'select' => '-- Selecione --',
             'add-title' => 'Adicionar Conteúdo',
             'btn-add-content' => 'Add Conteúdo',
-            'save-btn-title' => 'Salvar Conteúdo',
+            'save-btn-title' => 'Guardar Conteúdo',
             'autocomplete' => '[Autocompletar]',
             'no-result-found' => 'Nenhum registo encontrado.',
             'search-hint' => 'Procure produtos aqui...',
@@ -123,7 +123,7 @@ return [
             ]
         ],
         'category' => [
-            'save-btn-title' => 'Salvar Menu',
+            'save-btn-title' => 'Guardar Menu',
             'title' => 'Lista de Categorias Menu',
             'add-title' => 'Adicionar Conteúdo do Menu',
             'edit-title' => 'Editar Conteúdo do Menu',
