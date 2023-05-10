@@ -484,6 +484,12 @@
     }
 }
 
+.form-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
 .form-container {
     .container {
         width: 65%;
@@ -1011,6 +1017,7 @@
             > .row,
             .control-group {
                 margin-bottom: 30px;
+                align-items: center;
             }
 
             label {
@@ -1379,7 +1386,7 @@
 
     .coupon-container {
         input {
-            max-width: 200px;
+            // max-width: 200px;
         }
 
         button {
