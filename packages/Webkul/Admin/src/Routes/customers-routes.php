@@ -55,6 +55,14 @@ Route::group(['middleware' => ['admin'], 'prefix' => config('app.admin_url')], f
         'view' => 'admin::customers.orders.index',
     ])->name('admin.customer.orders.data');
 
+    Route::get('customers/{id}/accept', [CustomerController::class, 'accept_view'])->defaults('_config', [
+        'view' => 'admin::customers.accept',
+    ])->name('admin.customer.accept_view');
+
+    Route::put('customers/{id}/accept', [CustomerController::class, 'accept'])->defaults('_config', [
+        'redirect' => 'admin.customer.index',
+    ])->name('admin.customer.accept');
+
     /**
      * Customer's addresses routes.
      */

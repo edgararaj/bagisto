@@ -174,6 +174,7 @@ return [
         'welcome-message' => 'Bem-vindo, :customer_name',
         'dropdown-text' => 'Configurar Carrinho, Pedidos & Listas de Desejo',
         'sign-in' => 'Entrar',
+        'accept'=> 'Aceitar',
         'sign-up' => 'Criar Conta'
     ],
 
@@ -219,7 +220,7 @@ return [
             'sign-up' => 'Registar',
             'new-customer' => 'Novo cliente',
             'customer-login' => 'Login do cliente',
-            'registered-user' => 'Usuário Registrado',
+            'registered-user' => 'Usuário Registado',
             'your-email-address' => 'Seu endereço de email',
             'form-login-text' => 'Se possui uma conta, entre com o seu endereço de e-mail.',
         ],
@@ -228,6 +229,7 @@ return [
             'become-user' => 'Torne-se usuário',
             'user-registration' => 'Registro de Usuário',
             'form-signup-text' => 'Se é novo na nossa loja, desejamos tê-lo como membro.',
+            'professional-access' => 'Acesso Profissional'
         ],
         'forget-password' => [
             'login' => 'Login',

@@ -132,7 +132,7 @@ class CustomerController extends Controller
         ]);
 
         Event::dispatch('customer.update.before', $id);
-        
+
         $customer = $this->customerRepository->update(array_merge(request()->all(), [
             'status'       => request()->has('status'),
             'is_suspended' => request()->has('is_suspended'),
@@ -259,7 +259,7 @@ class CustomerController extends Controller
         if (! $this->customerRepository->checkBulkCustomerIfTheyHaveOrderPendingOrProcessing($customerIds)) {
             foreach ($customerIds as $customerId) {
                 Event::dispatch('customer.delete.before', $customerId);
-                
+
                 $this->customerRepository->delete($customerId);
 
                 Event::dispatch('customer.delete.after', $customerId);
@@ -273,6 +273,31 @@ class CustomerController extends Controller
         session()->flash('error', trans('admin::app.customers.order-pending'));
 
         return redirect()->back();
+    }
+
+    public function accept_view($id)
+    {
+        $customer = $this->customerRepository->findOrFail($id);
+
+        $groups = $this->customerGroupRepository->findWhere([['code', '<>', 'guest']]);
+
+        return view($this->_config['view'], compact('customer', 'groups'));
+    }
+
+    public function accept($id)
+    {
+        Event::dispatch('customer.update.before', $id);
+
+        $customer = $this->customerRepository->update(array_merge(request()->all(), [
+            'is_suspended' => 0,
+        ]), $id);
+
+        Event::dispatch('customer.update.after', $customer);
+
+        Mail::queue(new AcceptedProRegistrationEmail(request()->all()));
+        session()->flash('success', "Registo profissional aceite com successo");
+
+        return redirect()->route($this->_config['redirect']);
     }
 
     /**

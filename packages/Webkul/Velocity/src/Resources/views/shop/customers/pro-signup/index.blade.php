@@ -10,14 +10,9 @@
             <div class="col-lg-10 col-md-12 offset-lg-1">
                 <div class="heading">
                     <h2 class="fs24 fw6">
-                        {{ __('velocity::app.customer.signup-form.user-registration')}}
+                        {{ __('velocity::app.customer.signup-form.professional-access')}}
                     </h2>
 
-                    <a href="{{ route('shop.customer.pro-register.index') }}" class="btn-new-customer ml-3">
-                        <button type="button" class="theme-btn">
-                            {{ __('velocity::app.customer.signup-form.professional-access')}}
-                        </button>
-                    </a>
                     <a href="{{ route('shop.customer.session.index') }}" class="btn-new-customer">
                         <button type="button" class="theme-btn light">
                             {{ __('velocity::app.customer.signup-form.login')}}
@@ -38,7 +33,7 @@
 
                     <form
                         method="post"
-                        action="{{ route('shop.customer.register.create') }}"
+                        action="{{ route('shop.customer.pro-register.create') }}"
                         @submit.prevent="onSubmit">
 
                         {{ csrf_field() }}
@@ -80,6 +75,18 @@
                         </div>
 
                         {!! view_render_event('bagisto.shop.customers.signup_form_controls.lastname.after') !!}
+
+                        <div class="control-group" :class="[errors.has('company_name') ? 'has-error' : '']">
+                            <label for="company_name" class="required lable-style">{{ __('shop::app.customer.account.address.create.company_name') }}</label>
+                            <input type="text" class="form-style" name="company_name" v-validate="'required'" value="{{ old('company_name') }}" data-vv-as="&quot;{{ __('shop::app.customer.account.address.create.company_name') }}&quot;">
+                            <span class="control-error" v-if="errors.has('company_name')" v-text="errors.first('company_name')"></span>
+                        </div>
+
+                        <div class="control-group" :class="[errors.has('vat_id') ? 'has-error' : '']">
+                            <label for="vat_id" class="required label-style">{{ __('shop::app.customer.account.address.create.vat_id') }}</label>
+                            <input type="text" class="form-style" name="vat_id" v-validate="'required'"  value="{{ old('vat_id') }}" data-vv-as="&quot;{{ __('shop::app.customer.account.address.create.vat_id') }}&quot;">
+                            <span class="control-error" v-if="errors.has('vat_id')" v-text="errors.first('vat_id')"></span>
+                        </div>
 
                         <div class="control-group" :class="[errors.has('email') ? 'has-error' : '']">
                             <label for="email" class="required label-style">

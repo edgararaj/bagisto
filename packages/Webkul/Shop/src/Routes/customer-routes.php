@@ -6,6 +6,7 @@ use Webkul\Customer\Http\Controllers\AddressController;
 use Webkul\Customer\Http\Controllers\CustomerController;
 use Webkul\Customer\Http\Controllers\ForgotPasswordController;
 use Webkul\Customer\Http\Controllers\RegistrationController;
+use Webkul\Customer\Http\Controllers\ProRegistrationController;
 use Webkul\Customer\Http\Controllers\ResetPasswordController;
 use Webkul\Customer\Http\Controllers\SessionController;
 use Webkul\Customer\Http\Controllers\WishlistController;
@@ -63,6 +64,17 @@ Route::group(['middleware' => ['locale', 'theme', 'currency']], function () {
             Route::post('register', [RegistrationController::class, 'create'])->defaults('_config', [
                 'redirect' => 'shop.customer.session.index',
             ])->name('shop.customer.register.create');
+
+            /**
+             * Professional Registration routes.
+             */
+            Route::get('pro-register', [ProRegistrationController::class, 'show'])->defaults('_config', [
+                'view' => 'shop::customers.pro-signup.index',
+            ])->name('shop.customer.pro-register.index');
+
+            Route::post('pro-register', [ProRegistrationController::class, 'create'])->defaults('_config', [
+                'redirect' => 'shop.customer.session.index',
+            ])->name('shop.customer.pro-register.create');
 
             /**
              * Customer verification routes.

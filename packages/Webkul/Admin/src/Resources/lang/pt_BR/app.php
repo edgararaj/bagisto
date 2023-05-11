@@ -277,7 +277,7 @@ return [
         'forget-password' => [
             'title'            => 'Esqueci Minha Password',
             'header-title'     => 'Recuperar Password',
-            'email'            => 'E-mail Registrado',
+            'email'            => 'E-mail Registado',
             'password'         => 'Password',
             'confirm-password' => 'Confirmar Password',
             'back-link-title'  => 'Voltar para Login',
@@ -286,7 +286,7 @@ return [
 
         'reset-password' => [
             'title'            => 'Redefinir Password',
-            'email'            => 'E-mail Registrado',
+            'email'            => 'E-mail Registado',
             'password'         => 'Password',
             'confirm-password' => 'Confirmar Password',
             'back-link-title'  => 'Voltar para Login',

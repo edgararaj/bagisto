@@ -33,6 +33,7 @@ return [
         'title'         => 'Conta',
         'dropdown-text' => 'Gerenciar Carrinho, Pedidos & Lista de Desejos',
         'sign-in'       => 'Entrar',
+        'accept'        => 'Aceitar',
         'sign-up'       => 'Criar Conta',
         'account'       => 'Conta',
         'cart'          => 'Carrinho',
@@ -129,6 +130,7 @@ return [
             'using'                         => 'usando este site',
             'agreement'                     => 'Acordo',
             'success'                       => 'Conta criado com sucesso, um e-mail foi enviado para sua verificação de conta',
+            'pro-success'                   => 'Conta criado com sucesso, no entanto espera aprovação para que possa comprar',
             'success-verify-email-not-sent' => 'Conta criada com sucesso, mas o email de verificação não foi enviado',
             'failed'                        => 'Erro! Não é possível criar sua conta, tente novamente mais tarde',
             'already-verified'              => 'Sua conta já foi confirmada ou tente enviar novamente novo de e-mail de confirmação',
@@ -169,7 +171,7 @@ return [
 
         'reset-password' => [
             'title'            => 'Redefinir Password',
-            'email'            => 'Email registrado',
+            'email'            => 'Email Registado',
             'password'         => 'Password',
             'confirm-password' => 'Confirmar Password',
             'back-link-title'  => 'Voltar para Login',
@@ -236,7 +238,7 @@ return [
                 'create' => [
                     'page-title'     => 'Cliente - Adicionar Endereço',
                     'title'          => 'Novo Endereço',
-                    'company_name'   => 'Nome da empresa',
+                    'company_name'   => 'Nome da Empresa',
                     'first_name'     => 'Nome',
                     'last_name'      => 'Apelido',
                     'vat_id'         => 'NIF',
@@ -257,6 +259,7 @@ return [
                 'edit' => [
                     'page-title' => 'Cliente - Editar Endereço',
                     'title'      => 'Editar Endereço',
+                    'company_name'   => 'Nome da Empresa',
                     'submit'     => 'Guardar Endereço',
                     'success'    => 'Endereço Atualizado com sucesso.',
                 ],
@@ -549,7 +552,9 @@ return [
             'review'            => 'Reveja',
             'billing-address'   => 'Endereço de Cobrança',
             'sign-in'           => 'Entrar',
+            'company-name'      => 'Nome da Empresa',
             'first-name'        => 'Nome',
+            'back'              => 'Voltar',
             'last-name'         => 'Apelido',
             'email'             => 'E-mail',
             'address1'          => 'Endereço',
@@ -574,7 +579,7 @@ return [
             'shipping-address'  => 'Endereço de Entrega',
             'contact'           => 'Contacto',
             'place-order'       => 'Enviar Pedido',
-            'new-address'       => 'Add Novo Endereço',
+            'new-address'       => 'Adicionar Endereço',
             'save_as_address'   => 'Guardar Endereço',
             'apply-coupon'      => 'Aplicar Cupom',
             'enter-coupon-code' => 'Introduza o seu Cupom',
@@ -629,14 +634,14 @@ return [
             'discount'          => 'Discount',
             'grand-total'       => 'Total',
             'final-summary'     => 'Obrigado por mostrar o seu interesse em nossa loja nós lhe enviaremos o número de rastreamento assim que for despachado',
-            'help'              => 'Se você precisar de algum tipo de ajuda, por favor entre em contacto conosco :support_email',
+            'help'              => 'Se precisar de algum tipo de ajuda, por favor entre em contacto conosco :support_email',
             'thanks'            => 'Muito Obrigado!',
 
             'comment' => [
                 'subject'       => 'Novo comentário adicionado ao seu pedido #: order_id',
                 'dear'          => 'Prezado :customer_name',
                 'final-summary' => 'Obrigado por mostrar seu interesse em nossa loja',
-                'help'          => 'Se você precisar de algum tipo de ajuda, entre em contacto conosco :support_email',
+                'help'          => 'Se precisar de algum tipo de ajuda, entre em contacto conosco :support_email',
                 'thanks'        => 'Obrigada!',
             ],
 
@@ -719,12 +724,17 @@ return [
 
             'registration' => [
                 'subject'               => 'Novo Cliente',
-                'customer-registration' => 'Cliente registado com Sucesso',
+                'customer-registration' => 'Cliente Registado com Sucesso',
+                'customer-pro-registration' => 'Registo Profissional em espera de Aprovação',
+                'customer-pro-registration-accepted' => 'Registo Profissional Aceite',
                 'dear'                  => 'Caro :customer_name',
                 'dear-admin'            => 'Caro :admin_name',
-                'greeting'              => 'Bem vindo e obrigado por se registar conosco!',
+                'greeting'              => 'Bem-vindo e obrigado por se registar conosco!',
                 'greeting-admin'        => 'Você tem um novo registro de cliente.',
+                'pro-summary-admin'     => 'Tem um novo registro profissional de cliente.\\nNome: :customer_name\\nEmail: :customer_email\\nEmpresa: :company_name\\nNIF: :vat_id. Pode ser validado :nif_site.',
                 'summary'               => 'A sua conta foi criada com sucesso, e agora pode entrar com o seu endereço de email e password. Ao fazer login, poderá acessar outros serviços, incluindo a revisão de pedidos anteriores, listas de desejos e a edição das informações da sua conta.',
+                'pro-summary'           => 'A sua conta profissional foi criada com sucesso, mas espera aprovação para que possa efetuar compras. Receberá um email assim que for possivel. No entanto, ao fazer login, poderá acessar outros serviços, incluindo as listas de desejos e a edição das informações da sua conta.',
+                'pro-summary-accepted'  => 'A sua conta profissional foi aceite, e agora pode efetuar compras. Receberá um email assim que for possivel. Ao fazer login, poderá acessar outros serviços, incluindo as listas de desejos e a edição das informações da sua conta.',
                 'thanks'                => 'Obrigado!',
             ],
 
@@ -738,7 +748,7 @@ return [
 
             'subscription' => [
                 'subject'     => 'Email de Inscrição',
-                'greeting'    => ' Bem vindo a ' . config('app.name') . ' - Incrição de Email',
+                'greeting'    => ' Bem-vindo a ' . config('app.name') . ' - Incrição de Email',
                 'unsubscribe' => 'Unsubscribe',
                 'summary'     => 'Obrigado por me colocar na sua caixa de entrada. Já faz um tempo desde que você leu ' . config('app.name') . ' e-mail e não queremos sobrecarregar sua caixa de entrada. Se você ainda não deseja receber
                 as últimas notícias de email marketing e, com certeza, clique no botão abaixo.',
